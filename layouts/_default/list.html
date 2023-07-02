@@ -1,0 +1,38 @@
+{{ define "head" }}
+  <link rel="stylesheet" href="/home/defaults/home_default.css">
+  <link rel="stylesheet" media="screen and (max-width: 770px)" href="/home/mobile/home_mobile.css">
+{{ end }}
+
+{{ define "main" }}
+<main class="layout">
+    {{$article_pages := where .Site.RegularPages "Section" "articles"}}
+
+    <div class="layout-content">
+        <div class="group0">
+            {{ range $index, $val := $article_pages}}
+                {{ if eq (mod $index 3) 0 }}
+                    {{ partial "content" (dict "context" . "class" (printf "cikk%d" $index))}}
+                {{ end }}
+            {{ end }}
+        </div>
+
+        <div class="group1">
+            {{ range $index, $val := $article_pages}}
+                {{ if eq (mod $index 3) 1 }}
+                    {{ partial "content" (dict "context" . "class" (printf "cikk%d" $index))}}
+                {{ end }}
+            {{ end }}
+        </div>
+
+        <div class="group2">
+            {{ range $index, $val := $article_pages}}
+                {{ if eq (mod $index 3) 2 }}
+                    {{ partial "content" (dict "context" . "class" (printf "cikk%d" $index))}}
+                {{ end }}
+            {{ end }}
+        </div>
+
+    </div>
+
+</main>
+{{ end }}

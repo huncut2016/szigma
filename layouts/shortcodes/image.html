@@ -1,0 +1,9 @@
+{{/* image shortcode */}}
+
+{{ $src:= .Get "src" }}
+{{ $alt := .Get "alt" }}
+{{ $class := printf "article-img %s" (.Get "class") }}
+{{ $width := .Get "width" }}
+{{ $height := .Get "height" }}
+
+{{ partial "image" (dict "src" $src "alt" $alt "class" $class "width" $width "height" $height)}}

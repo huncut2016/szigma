@@ -1,0 +1,40 @@
+{{ $src:= .src}}
+{{ $alt := .alt }}
+{{ $class := .class}}
+
+{{ $img_url := "" }}
+
+{{ $default_width := "" }}
+{{ $defautl_height := "" }}
+
+
+{{ if strings.HasPrefix $src "http" }}
+    {{ $img_url = $src }}
+
+    {{ with resources.GetRemote $img_url }}
+        {{ with .Err }}
+            {{ warnf "%s" . }}
+        {{ else }}
+            {{ $default_width = .Width }}
+            {{ $defautl_height = .Height }}
+        {{ end }}
+    {{ end }}
+
+{{ else }}
+    {{ $img_path := printf "/img/%s" $src }}
+
+    {{ with resources.GetMatch $img_path }}
+        {{ with .Err }}
+            {{ warnf "%s" . }}
+        {{ else }}
+            {{ $default_width = .Width }}
+            {{ $defautl_height = .Height }}
+            {{ $img_url = .RelPermalink }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ $width := default $default_width (.width) }}
+{{ $height := default $defautl_height (.height) }}
+
+<img src="{{ $img_url }}" alt="{{ $alt }}" width="{{ $width }}" height="{{ $height }}" class="{{ $class }}">

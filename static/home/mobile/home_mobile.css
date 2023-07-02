@@ -1,0 +1,28 @@
+
+@media screen and (max-width: 770px){
+    .layout-content {
+        grid-template-columns: 1fr; 
+        grid-template-areas: 
+                            "a"
+                            "b"
+                            "c";
+        margin: 50px 20px 0 20px;
+    }
+
+    .cikk{
+        margin: 50px 20px 0 20px;
+    }
+
+    .image-container {
+        display: none;
+        width: 100%;
+        height: auto;
+    }
+
+    .cikk0 .image-container {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+}

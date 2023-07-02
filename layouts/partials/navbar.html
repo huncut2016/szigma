@@ -1,0 +1,55 @@
+    <nav class="navbar">
+        <div class="navbar-nav">
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="menu">
+                <div class="backdrop">
+                </div>
+
+                <div class="panel">
+
+                    <div class="headings-list">
+                        <h1>Rovatok</h1>
+                        <ul>
+                            {{ range $tag, $_ := .Site.Taxonomies.heading}}
+                            <li>
+
+                                <h2 class="heading">
+                                    <a href="{{ "/heading/" | relLangURL }}{{ $tag | urlize }}">{{ $tag }}</a>
+                                </h2>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+            <div class="menu">
+            </div>
+            <div class="nav-item" id="nav-title"><a href="/">Szigma</a></div>
+        </div>
+    </nav>
+
+    <script>
+        const nav_toogle = document.querySelector(".navbar-toggle")
+        const menu = document.querySelector(".menu");
+        const backdrop = document.querySelector(".backdrop");
+        const close_button = document.querySelector(".close-button");
+
+        nav_toogle.addEventListener("click", () => {
+            menu.classList.toggle("active")
+        })
+
+        backdrop.addEventListener("click", () => {
+            menu.classList.toggle("active")
+        })
+    </script>

@@ -1,0 +1,24 @@
+@media screen and (max-width: 1080px){
+    .cikk{
+        margin: 50px 20px 0 20px;
+        width: fit-content;
+    }
+    .layout {
+        flex-direction: column;
+    }
+
+    .related {
+        margin: 0 20px 0 20px;
+        width: fit-content;
+    }
+
+    .mobile-content-divider {
+        display: block;
+        width: 70%;
+        margin: 30px auto 50px auto; 
+    }
+
+    .authors {
+        flex-direction: column;
+    }
+}

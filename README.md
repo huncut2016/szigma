@@ -1,0 +1,1 @@
+# A Szent István Gimnázium hivatalos diákújsága

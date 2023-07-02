@@ -1,0 +1,20 @@
+
+        <div class="content-group {{.class}}">
+            <div class="image-container">
+
+                {{ $defaultImage := "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" }}
+                {{ partial "image" ( dict "src" (default $defaultImage .context.Params.cover ) ) }}
+
+                <div class="image-label">
+                    <a href="{{ "/heading/" | relLangURL }}{{.context.Params.heading | urlize}}/">{{.context.Params.heading}}</a>
+                </div>
+            </div>
+            <a href="{{.context.Permalink}}">
+            <h1>
+                {{.context.Title}}
+            </h1>
+            <p class="summary">
+                {{.context.Summary}}
+            </p>
+            </a>
+        </div>

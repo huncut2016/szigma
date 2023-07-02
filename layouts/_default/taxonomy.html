@@ -1,0 +1,16 @@
+{{ define "main" }}
+  {{ with .Params.description }}
+    <p>{{.}}</p>
+  {{ end }}
+
+  <h2>Ez egy "{{.Kind}}" oldal </h2>
+
+  <ul>
+    {{ range .Data.Pages }}
+       <li>
+         <a href="{{ .Permalink}}">{{ .Title }}</a>
+       </li>
+    {{ end }}
+  </ul>
+
+{{ end }}

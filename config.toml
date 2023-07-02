@@ -1,0 +1,36 @@
+baseURL = 'http://localhost'
+languageCode = 'hu'
+defaultContentLanguage = 'hu'
+title = 'Szigma'
+[taxonomies]
+  category = 'categories'
+  series = 'series'
+  tag = 'tags'
+  authors = 'authors'
+  headings = 'heading' 
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = true 
+  
+[related]
+  includeNewer = true 
+  threshold = 0
+  toLower = true 
+[[related.indices]]
+  name = 'authors'
+  weight = 80 
+[[related.indices]]
+  name = 'heading'
+  weight = 80 
+[[related.indices]]
+  name = 'title'
+  weight = 10
+[[related.indices]]
+  name = 'date'
+  threshold = "30d"
+  weight = 10
+[[related.indices]]
+  name = 'summary'
+  weight = 10

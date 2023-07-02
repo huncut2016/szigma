@@ -1,0 +1,128 @@
+
+.navbar {
+    height: 70px;
+    width: 100%;
+    background: var(--bg-nav);
+    color: var(--nav-text);
+}
+
+#nav-title {
+
+    width: 100%;
+    text-align: center;
+    font-family: var(--navbar-font-family);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 113px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.navbar-toggle span {
+    background-color: var(--nav-text);
+    border-radius: 2px;
+    height: 3px;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.navbar-toggle:hover span{
+    background-color: var(--gray); 
+}
+
+.navbar-toggle:hover{
+    background-color: rgba(var(--RGB_gray), 0.1); 
+}
+
+.menu {
+    display: none;
+}
+
+.menu.active {
+    z-index: 999;
+    box-sizing: border-box;
+    display: block;
+}
+
+.menu.active .backdrop{
+    background-color: rgba(0, 0, 0, .8);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+
+.menu.active .backdrop::before{
+    content: "";
+    transform: rotate(-45deg);
+    position: fixed;
+    width: 30px;
+    height: 2px;
+    background-color: var(--white);
+
+    left: 430px;
+    top: 30px;
+}
+
+.menu.active .backdrop::after{
+    content: "";
+    transform: rotate(45deg);
+    position: fixed;
+    width: 30px;
+    height: 2px;
+    background-color: var(--white);
+
+    left: calc(30px + var(--panel-width-d));
+    top: 30px;
+}
+
+.menu.active .panel{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: var(--panel-width-d);
+
+    background-color: var(--bg-nav);
+    height: 100%;
+    overflow: auto;
+}
+
+.headings-list {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+}
+
+.panel > h1 {
+    list-style-type: disc;
+} 
+
+.panel ul li::marker{
+    font-size: 26px;
+} 

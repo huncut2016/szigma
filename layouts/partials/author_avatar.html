@@ -1,0 +1,10 @@
+{{$name := .name}}
+{{$class := .class}}
+
+{{$page := index (where (where site.Pages "Section" "authors") "Params.name" $name) 0}}
+
+{{ if and $page $page.Params.image}}
+    {{ partial "image" (dict "src" $page.Params.image "alt" $name "class" $class) }}
+{{ else }}
+    {{ partial "avatar" (dict "name" $name "class" $class) }}
+{{ end }}
