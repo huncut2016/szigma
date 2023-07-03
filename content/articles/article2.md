@@ -5,11 +5,10 @@ draft: false
 authors: ["Zoller András", "Juhász István", "Répás Mátyás"]
 heading: "Matematika"
 summary: "Rengetegszer hallunk a sorozatok határértékéről, de soha nem tudjuk, hogy mit is jelnt valjójában. Ebben a cikkben megismerheted, hogy mit is jelent pontosan ez a fogalom."
-images: ["https://i.ytimg.com/vi/tXAu5Ib-Oxk/maxresdefault.jpg"]
-cover: "https://i.ytimg.com/vi/tXAu5Ib-Oxk/maxresdefault.jpg"
+images: ["http://szigma.szigbp.hu/wp-content/uploads/2018/03/25_11034_79992_f099b686cb0fddd7dd9bfbd5f00e7d17_7ff3fa_301.jpg"]
+cover: "http://szigma.szigbp.hu/wp-content/uploads/2018/03/25_11034_79992_f099b686cb0fddd7dd9bfbd5f00e7d17_7ff3fa_301.jpg"
 katex: true 
 ---
-
 # Limit of sequences
 
 ## Definition
