@@ -4,11 +4,12 @@ date: 2023-05-31T18:56:12+02:00
 authors: ["Valaki"]
 heading: "Újságírás"
 summary: "Nem tudomm, hogy milyen szöveget rakjak ide, ezért most leírom a gondolataimat. Kéne még egy search field az oldalra, már megvan az ötlet, csak nagyon hangya munka leprogramozni. Sajnos az élet ilyen, ha nincsenek beosztottaid, akkor ilyen kellemetlen dolgokat kell csinálnod, mint a programozás..."
-cover: "http://szigma.szigbp.hu/wp-content/uploads/2018/03/25_11034_79992_f099b686cb0fddd7dd9bfbd5f00e7d17_7ff3fa_301.jpg"
-images: ["http://szigma.szigbp.hu/wp-content/uploads/2018/03/25_11034_79992_f099b686cb0fddd7dd9bfbd5f00e7d17_7ff3fa_301.jpg"]
+cover: "https://www.shutterstock.com/image-illustration/internet-media-intelligence-screen-monitoring-600w-1996580468.jpg"
+images: ["https://www.shutterstock.com/image-illustration/internet-media-intelligence-screen-monitoring-600w-1996580468.jpg"]
 katex: false 
 draft: false 
 ---
+
 
 > A benzinkártya és a diplomata útlevél, az, hogy nem kell kivárnom a sort a határellenőrzésnél
 
@@ -30,7 +31,7 @@ At that moment he had a thought that he'd never imagine he'd consider. "I could 
 # Some random ending
 She never liked cleaning the sink. It was beyond her comprehension how it got so dirty so quickly. It seemed that she was forced to clean it every other day. Even when she was extra careful to keep things clean and orderly, it still ended up looking like a mess in a couple of days. What she didn't know was there was a tiny creature living in it that didn't like things neat.
 
-{{<image src="http://szigma.szigbp.hu/wp-content/uploads/2018/06/IMG_20180530_115426-1024x576.jpg">}}
+{{<image src="https://www.shutterstock.com/image-vector/open-source-icon-logo-element-600w-1009846294.jpg">}}
 
 
 ---

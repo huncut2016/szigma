@@ -5,10 +5,11 @@ draft: false
 authors: ["Zoller András"]
 heading: "Újságírás"
 summary: "A Szigma oldalára egy nagyon népszerű leírónyelvvel lehet a cikkeket készíteni, amelyet Markdownnak hívnak. Ebben a cikkben küröljárjuk, hogy pontosan hogyan kell csinálni"
-cover: "http://szigma.szigbp.hu/wp-content/uploads/2018/03/25_11034_79992_f099b686cb0fddd7dd9bfbd5f00e7d17_7ff3fa_301.jpg"
-images: ["http://szigma.szigbp.hu/wp-content/uploads/2018/03/25_11034_79992_f099b686cb0fddd7dd9bfbd5f00e7d17_7ff3fa_301.jpg"]
+cover: "https://www.shutterstock.com/image-illustration/internet-media-intelligence-screen-monitoring-600w-1996580468.jpg"
+images: ["https://www.shutterstock.com/image-illustration/internet-media-intelligence-screen-monitoring-600w-1996580468.jpg"]
 katex: true 
 ---
+
 # Mi az a Markdown?
 > A Markdown egy széles körben elterjedt egyszerű jelölőnyelv formázott szövegek létrehozásához. A Markdownt John Gruber és Aaron Schwartz alkotta meg 2004-ben, céljuk egy olyan jelölőnyelv létrehozása volt, mely forráskód formájában is kényelmesen olvasható.
 
