@@ -2,6 +2,7 @@ baseURL = 'http://localhost'
 languageCode = 'hu'
 defaultContentLanguage = 'hu'
 title = 'Szigma'
+canonifyURLs = true
 [taxonomies]
   category = 'categories'
   series = 'series'
