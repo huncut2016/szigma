@@ -1,0 +1,45 @@
+{{/*  
+    Parameters:
+        @contents:List[Article] => list of articles 
+        @Optional[class:String] => the classname of the ul element 
+        @Optional[defaultImage:[Path|URLPath]] => the default image if the article 
+
+        @Optional[useTitle:Bool] = true
+        @Optional[useSummary:Bool] = true
+        @Optional[useImage:Bool] = true
+*/}}
+
+{{$predefinedDefaultImage :=  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/1362px-Placeholder_view_vector.svg.png?20220519031949"}}
+
+{{$class := default "" .class}}
+{{$defaultImage := default $predefinedDefaultImage .defaultImage}}
+         
+{{$useSummary := default true .useSummary}}
+{{$useTitle:= default true .useTitle}}
+{{$useImage:= default true .useImage}}
+
+<ul class="{{$class}}">
+      {{ range .contents}}
+      <li>
+        {{ if $useImage }}
+            <div class="image-container">
+            {{ partial "image" ( dict "src" (default $defaultImage .Params.cover) ) }}
+
+            <div class="image-label">
+                <a href="{{ "/heading/" | relLangURL }}{{.Params.heading | urlize}}/">{{.Params.heading}}</a>
+            </div>
+            </div>
+        {{ end }}
+        
+        <div class="related-text">
+            {{ if $useTitle }}
+                <a class="related-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{ end }}
+
+            {{ if $useSummary}}
+                <a class="related-summary" href="{{ .RelPermalink }}">{{ .Summary}}</a>
+            {{ end }}
+        </div>
+      </li>
+      {{ end }}
+</ul>

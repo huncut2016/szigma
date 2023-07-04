@@ -1,0 +1,77 @@
+
+
+{{ define "main" }}
+
+  {{$author_name := .Params.Title}}
+
+  <style>
+
+    .articles ul {
+      margin: 0 auto; 
+      max-width: 1024px;
+    }
+    .articles {
+      margin: 0 30px;
+    }
+
+    .author-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 50px 0 auto auto;
+    }
+
+    .author-img {
+      width: 8rem;
+      height: 8rem;
+      border: 2px solid var(--black);
+      border-radius: 50%;
+    }
+
+    .author-name {
+      font-size: large;
+      font-weight: bold;
+      color: var(--author-color);
+
+    }
+
+    .author-divider {
+      margin: 30px auto;
+      width: 60%;
+      /*color: TODO*/
+    }
+
+    .content-group {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .articles li {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      grid-gap: 15px;
+      margin: 0 0 35px 0;
+    }
+
+    .related-title {
+      font-weight: bold;
+    }
+
+    .related-text {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+
+  <div class="author-container">
+    {{ partial "author_avatar" (dict "name" $author_name "class" "author-img") }}
+    <p class="author-name">{{$author_name}}</p>
+  </div>
+
+  <hr class="author-divider">
+
+  <div class="articles">
+    {{ partial "content-list" (dict "contents" .Data.Pages) }}
+  </div>
+
+{{ end }}

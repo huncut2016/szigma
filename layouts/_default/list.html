@@ -11,7 +11,7 @@
         <div class="group0">
             {{ range $index, $val := $article_pages}}
                 {{ if eq (mod $index 3) 0 }}
-                    {{ partial "content" (dict "context" . "class" (printf "cikk%d" $index))}}
+                    {{ partial "content" (dict "content" . "class" (printf "content-group cikk%d" $index))}}
                 {{ end }}
             {{ end }}
         </div>
@@ -19,7 +19,7 @@
         <div class="group1">
             {{ range $index, $val := $article_pages}}
                 {{ if eq (mod $index 3) 1 }}
-                    {{ partial "content" (dict "context" . "class" (printf "cikk%d" $index))}}
+                    {{ partial "content" (dict "content" . "class" (printf "content-group cikk%d" $index))}}
                 {{ end }}
             {{ end }}
         </div>
@@ -27,7 +27,7 @@
         <div class="group2">
             {{ range $index, $val := $article_pages}}
                 {{ if eq (mod $index 3) 2 }}
-                    {{ partial "content" (dict "context" . "class" (printf "cikk%d" $index))}}
+                    {{ partial "content" (dict "content" . "class" (printf "content-group cikk%d" $index))}}
                 {{ end }}
             {{ end }}
         </div>

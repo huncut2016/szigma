@@ -46,23 +46,9 @@
   <div class="related">
     {{ $related := .Site.RegularPages.Related . | first 5}}
     <h3>További cikkek</h3>
-    <ul>
-      {{ range $related}}
-      <li>
-        <div class="image-container">
-          {{ $defaultImage :=
-          "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
-          }}
-          {{ partial "image" ( dict "src" (default $defaultImage .Params.image) ) }}
 
-          <div class="image-label">
-            <a href="{{ "/heading/" | relLangURL }}{{.Params.heading | urlize}}/">{{.Params.heading}}</a>
-          </div>
-        </div>
-        <a class="related-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </li>
-      {{ end }}
-    </ul>
+    {{ partial "content-list" (dict "contents" $related "useSummary" false) }}
+
   </div>
 
 </div>
