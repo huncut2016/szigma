@@ -15,26 +15,114 @@ katex: true
 
 {{<cite>}} Wikipépia {{</cite>}}
 
-## Markdown cheatsheet
+# Markdown Cheat Sheet
+
+# # Heading 1
+## ## Heading 2
+### ### Heading 3
+
+--- 
+
+*\*Italic text\**
+\*\***Bold text**\*\*
+
+--- 
+
+## Lists
+
+### Unordered List:
+```
+- Item 1
+- Item 2
+- Item 3
+```
+- Item 1
+- Item 2
+- Item 3
+
+### Ordered List:
+```
+1. Item 1
+2. Item 2
+3. Item 3
+```
+
+1. Item 1
+2. Item 2
+3. Item 3
+
+---
+
+## Links
+
+```
+[Link text](https://www.example.com)
+```
+
+[Link text](https://www.example.com)
+
+---
+
+## Images
+
+&#123;&#123;\<image src="image.png"\>&#125;&#125;
 
 
-## Definition
+---
 
-### Definition 1.
+## Blockquotes
 
-A **limit point of a sequence** $a_{n}$ is a point $\color{orange}L$ such that every neighbourhood of $\color{orange}L$ contains all points of the sequence with numbers above some $n_{0}$.
+```
+> This is a blockquote.
+```
 
-### Formal definition 
-{{<formula>}}
-\forall \;\; \epsilon \! > \! 0 \;\; \exists n_0 \text{ s.t. } n \geq n_0 \quad |{\color{orange}L}-a_n| \leq \epsilon
-{{</formula>}}
+> This is a blockquote.
 
-- If for all $\epsilon>0$ exist an $n_{0}$ such that every $n \geq n_{0}$  than $|{\color{orange}L}-a_{n}|\leq \epsilon$, $\color{orange}L$ is the limit of $a_{n}$
 
-- If for all $\epsilon>1$ exist an $n_{0}$ such that every $n \geq n_{0}$  than $|{\color{orange}L}-a_{n}|\leq \epsilon$, $\color{orange}L$ is the limit of $a_{n}$
+---
 
-{{<image src="http://csodafizika.hu/ds/ds.jpg" alt="Ez egy nagyon kellemes kép a káoszról">}}
+## Code
 
-Nem nagyon tudom, hogy mi lehet ennek az oka 
+Inline code: \`code\`
 
-{{<image src="https://user-images.githubusercontent.com/81006960/142606746-3d6191e3-d8f0-465f-9aef-070dc6c88958.png" alt="Valami random kép Githubról">}}
+Code block:
+\`\`\`
+function sayHello() {
+  console.log("Hello, world!");
+}
+\`\`\`
+```
+function sayHello() {
+  console.log("Hello, world!");
+}
+```
+
+
+---
+
+## Tables
+
+```
+| Column 1 | Column 2 |
+| -------- | -------- |
+| Cell 1   | Cell 2   |
+| Cell 3   | Cell 4   |
+```
+| Column 1 | Column 2 |
+| -------- | -------- |
+| Cell 1   | Cell 2   |
+| Cell 3   | Cell 4   |
+
+
+---
+
+## Horizontal Rule
+
+```
+---
+```
+---
+
+## Escaping Characters
+
+To escape special characters, use a backslash (\\).
