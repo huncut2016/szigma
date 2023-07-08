@@ -101,7 +101,7 @@ cite {
   --navbar-font-family: 'Playfair Display', serif;
   --content-font-family: 'Inter', sans-serif;
   --white: white;
-  --panel-width-d: 400px;
+  --panel-width-d: min(65%, 400px);
 }
 
 .light {

@@ -82,7 +82,7 @@
     height: 2px;
     background-color: var(--white);
 
-    left: 430px;
+    left: calc(30px + var(--panel-width-d));
     top: 30px;
 }
 
@@ -114,13 +114,18 @@
 }
 
 .headings-list {
-    width: 100%;
-    height: 100%;
     padding: 2rem;
 }
 
-.panel > h1 {
+.panel h1 {
+    font-size: min(4.5vw, 2em);
+} 
+
+.panel ul {
     list-style-type: disc;
+} 
+.panel h2 {
+    font-size: min(4vw, 1.5em);
 } 
 
 .panel ul li::marker{

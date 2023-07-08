@@ -25,13 +25,14 @@ The thing that's great about this job is the time sourcing the items involves no
 # An Arm and a Leg
 Do you really listen when you are talking with someone? I have a friend who listens in an unforgiving way. She actually takes every word you say as being something important and when you have a friend that listens like that, words take on a whole new meaning.
 
+{{<image src="https://www.shutterstock.com/image-vector/open-source-icon-logo-element-600w-1009846294.jpg">}}
+
 # In the Red
 At that moment he had a thought that he'd never imagine he'd consider. "I could just cheat," he thought, "and that would solve the problem." He tried to move on from the thought but it was persistent. It didn't want to go away and, if he was honest with himself, he didn't want it to.
  
 # Some random ending
 She never liked cleaning the sink. It was beyond her comprehension how it got so dirty so quickly. It seemed that she was forced to clean it every other day. Even when she was extra careful to keep things clean and orderly, it still ended up looking like a mess in a couple of days. What she didn't know was there was a tiny creature living in it that didn't like things neat.
 
-{{<image src="https://www.shutterstock.com/image-vector/open-source-icon-logo-element-600w-1009846294.jpg">}}
 
 
 ---
