@@ -104,6 +104,7 @@ cite {
   --white: white;
   --panel-width-d: min(65%, 400px);
   --home-layout-margin: 10vw;
+  --mobile-home-layout-margin: 3.33vw;
   --desktop-content-count: 5;
   --mobile-content-count: 3;
   --content-gap: 2vw;

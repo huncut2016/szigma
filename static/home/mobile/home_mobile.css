@@ -1,4 +1,9 @@
 @media screen and (max-width: 600px){
+    
+    .layout-content {
+        margin: 5vw var(--mobile-home-layout-margin) 0 var(--mobile-home-layout-margin);
+    }
+
     .content .cover {
         width: var(--mobile-cover-size); 
         height:  var(--mobile-cover-size) ;

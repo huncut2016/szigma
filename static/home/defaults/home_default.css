@@ -43,10 +43,10 @@
 }
 
 .main-content-container .title {
-    margin-bottom: 20px;
+    margin-bottom: 2vw;
     grid-area: a;
     font-family: var(--first-article-font-family);
-    font-size: 2.5vw;
+    font-size: max(2.5vw, 13px);
 }
 
 .main-content-container .summary {
@@ -122,7 +122,7 @@
     height: fit-content;
 }
 
-.content {
+.content > a {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -135,11 +135,11 @@
 
 .teaser {
     background-color: rgba(213, 213, 213, 0.4);
-    width: min(35%, 400px);
+    width: clamp(35%, 180px, 400px);
     margin: 20px auto;
     border-radius: 15px;
     padding: 0.25rem 20%;
-    font-size: 1.9vw;
+    font-size: max(1.9vw, 12px);
     font-weight: bold;
 }
 
@@ -147,7 +147,7 @@
     text-align: center;
     font-family: monospace;
     color: rgb(117, 116, 116);
-    font-size: 1.56vw;
+    font-size: max(1.56vw, 10px) ;
 
 }
 

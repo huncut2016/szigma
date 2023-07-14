@@ -44,14 +44,14 @@ draft: false
 authors: [{",".join(auths)}]
 heading: "{random.sample(headings, 1)[0]}"
 summary: "{lorem.sentence()}"
-images: ["https://picsum.photos/seed/{random_date}/1280/853"]
-cover: "https://picsum.photos/seed/{random_date}/1280/853"
+images: ["https://picsum.photos/seed/{random_date}/1280/853.webp"]
+cover: "https://picsum.photos/seed/{random_date}/1280/853.webp"
 ---
 """
     seed = random.randint(1, 6)
 
     for j in range(6):
-        image = f'{{{{<image src="https://picsum.photos/seed/{i}{j}{seed}/1280/853">}}}}' if i % seed == 0 else ""
+        image = f'{{{{<image src="https://picsum.photos/seed/{i}{j}{seed}/1280/853.webp">}}}}' if i % seed == 0 else ""
 
         par = f"""# {lorem.sentence()}        
 {lorem.paragraph()}
