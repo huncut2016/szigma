@@ -1,41 +1,24 @@
-{{/*  
+{{/*
     Parameters:
         @class:String => clasname of the main div
         @content:Article => an article
-
-        @Optional[useTitle:Bool] = true
-        @Optional[useSummary:Bool] = true
-        @Optional[useImage:Bool] = true
 */}}
 
-{{$useSummary := default true .useSummary}}
-{{$useTitle:= default true .useTitle}}
-{{$useImage:= default true .useImage}}
+{{$class := .class}}
 
-<div class="{{.class}}">
-    {{ if $useImage }}
-        <div class="image-container">
+{{ with .content }}
+    <div class="{{$class}}">
+        <a href="{{.RelPermalink}}">
+            {{ partial "image" (dict "src" .Params.cover "alt" .Title "class" "cover") }}
+            <div class="title">
+                {{.Title | truncate 60}}
 
-            {{ $defaultImage := "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" }}
-            {{ partial "image" ( dict "src" (default $defaultImage .content.Params.cover ) ) }}
-
-            <div class="image-label">
-                <a href="{{ "/heading/" | relLangURL }}{{.content.Params.heading | urlize}}/">{{.content.Params.heading}}</a>
             </div>
-        </div>
-    {{ end }}
+            <div class="summary">
+                {{.Summary | truncate 100}}
 
-    <a href="{{.content.Permalink}}">
-        {{- if  $useTitle -}}
-            <h1>
-                {{.content.Title}}
-            </h1>
-        {{- end -}}
+            </div>
+        </a>
 
-        {{- if $useSummary -}}
-            <p class="summary">
-                {{.content.Summary}}
-            </p>
-        {{- end -}}
-    </a>
-</div>
+    </div>
+{{ end }}

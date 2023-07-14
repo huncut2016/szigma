@@ -23,11 +23,11 @@
       <li>
         {{ if $useImage }}
             <div class="image-container">
-            {{ partial "image" ( dict "src" (default $defaultImage .Params.cover) ) }}
+                {{ partial "image" ( dict "src" (default $defaultImage .Params.cover) ) }}
 
-            <div class="image-label">
-                <a href="{{ "/heading/" | relLangURL }}{{.Params.heading | urlize}}/">{{.Params.heading}}</a>
-            </div>
+                <div class="image-label">
+                    <a href="{{ "/heading/" | relLangURL }}{{.Params.heading | urlize}}/">{{title .Params.heading}}</a>
+                </div>
             </div>
         {{ end }}
         

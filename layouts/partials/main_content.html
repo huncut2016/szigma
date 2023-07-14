@@ -1,0 +1,47 @@
+{{/*  
+    Parameters:
+        @class:String => clasname of the main div
+        @content:Article => an article
+
+        @Optional[useTitle:Bool] = true
+        @Optional[useSummary:Bool] = true
+        @Optional[useImage:Bool] = true
+*/}}
+
+<div class="main-content-container {{.class}}">
+        {{ partial "image" (dict "src" .content.Params.cover "alt" "Valami" "class" "cover")}}
+
+        <div class="article-infos">
+            <div class="authors">
+                {{ range .content.Params.authors}}
+                    {{ partial "author_avatar" (dict "name" . "class" "author-img") }}
+                {{ end }}
+                <span class="dot">
+                    · 
+                </span>
+                <div class="date">{{time.Format "2006. 02. Monday" .content.Date}}</div>
+            </div>
+
+            <a href="{{.content.RelPermalink}}">
+                <h1 class="title">
+                        {{.content.Title}}
+                </h1>
+
+                <div class="summary">{{.content.Summary | truncate 200}}</div>
+            </a>
+
+            {{/*  <div class="authors"></div>  */}}
+            <div class="bottom-container">
+                <div class="bottom-content">
+                    <a class="heading" href="{{ "/heading/" | relLangURL }}{{.content.Params.heading | urlize}}/">{{title .content.Params.heading}}</a> 
+                    · 
+                    <span class="read-time">
+                        {{ partial "readTime" (dict "content" .content)}} perc elolvasni
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+</div>
+

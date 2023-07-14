@@ -1,28 +1,21 @@
-
-@media screen and (max-width: 770px){
-    .layout-content {
-        grid-template-columns: 1fr; 
-        grid-template-areas: 
-                            "a"
-                            "b"
-                            "c";
-        margin: 50px 20px 0 20px;
+@media screen and (max-width: 600px){
+    .content .cover {
+        width: var(--mobile-cover-size); 
+        height:  var(--mobile-cover-size) ;
+    }
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2vw;
     }
 
-    .cikk{
-        margin: 50px 20px 0 20px;
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2vw;
     }
 
-    .image-container {
+    .card-container > .content:nth-child(n + 4)  {
         display: none;
-        width: 100%;
-        height: auto;
     }
-
-    .cikk0 .image-container {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
-    
 }

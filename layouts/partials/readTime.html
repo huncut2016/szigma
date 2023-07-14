@@ -1,0 +1,15 @@
+{{/*  
+    
+    Params:
+        @content:Article
+        @Optional[class:String]
+        @Optional[wpm:String]
+
+
+*/}}
+
+{{$wpm := default 250.0 .wpm}}
+
+{{ $minutes := math.Ceil (div (countwords .content.Content) $wpm) }}
+
+{{ $minutes }}

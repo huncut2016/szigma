@@ -3,10 +3,10 @@ title: "Hogyan írj cikket a Szigma oldalán?"
 date: 2023-05-28T16:41:02+02:00
 draft: false 
 authors: ["Zoller András"]
-heading: "Újságírás"
+heading: "újságírás"
 summary: "A Szigma oldalára egy nagyon népszerű leírónyelvvel lehet a cikkeket készíteni, amelyet Markdownnak hívnak. Ebben a cikkben küröljárjuk, hogy pontosan hogyan kell csinálni"
-cover: "https://www.shutterstock.com/image-illustration/internet-media-intelligence-screen-monitoring-600w-1996580468.jpg"
-images: ["https://www.shutterstock.com/image-illustration/internet-media-intelligence-screen-monitoring-600w-1996580468.jpg"]
+cover: "https://cdn.pixabay.com/photo/2020/02/08/09/52/chalk-4829602_1280.jpg"
+images: ["https://cdn.pixabay.com/photo/2020/02/08/09/52/chalk-4829602_1280.jpg"]
 katex: true 
 ---
 

@@ -1,4 +1,11 @@
+{{/*  
+    
+    Parameters:
+        @name:String => The name of the avatar
+        @Optional[class:String] => The classname of the avatar 
+    
+*/}}
 {{$name := .name}}
-{{$class := .class}}
+{{$class := default "" .class}}
 
 {{ partial "image" (dict "src" (printf "https://api.dicebear.com/5.x/lorelei/png?seed=%s" $name) "alt" $name "class" $class) }}

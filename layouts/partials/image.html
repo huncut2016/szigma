@@ -1,4 +1,16 @@
-{{ $src:= .src}}
+{{/*  
+    Parameters:
+        @src:String => an URL string or a path in the file system 
+        @class:String => clasname of the main div
+        @alt:String => the description of the image 
+
+        @Optional[width:Int] = the actual dimensions of the image 
+        @Optional[width:Int] = the actual dimensions of the image
+*/}}
+
+{{ $defaultImage := "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" }}
+
+{{ $src:= default $defaultImage .src}}
 {{ $alt := .alt }}
 {{ $class := .class}}
 

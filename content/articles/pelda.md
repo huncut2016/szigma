@@ -1,8 +1,8 @@
 ---
-title: "A Rejtélyes Hangyaboly: Az Állatvilág Csodái Között és a Kvantummechanika Kapcsolata"
+title: "Az Állatvilág Csodái Között és a Kvantummechanika Kapcsolata"
 date: 2023-05-31T18:56:12+02:00
 authors: ["ChatGPT", "Zoller András", "Anonymous"]
-heading: "Újságírás"
+heading: "újságírás"
 summary: "A hangyaboly lenyűgöző világa bemutatja a társadalmi együttműködés csodáit és az építészeti készségek lenyűgöző megnyilvánulásait. Az élelem megszerzéséhez egyedi stratégiákat alkalmaznak, mint például a növénytermesztés és a szimbiózis más rovarokkal. A hangyaboly továbbra is rejtélyekkel teli, de kiemelkedő szerepet játszik az ökoszisztémában."
 cover: "https://cdn.pixabay.com/photo/2021/03/07/08/41/anthill-6075527_1280.jpg"
 images: ["https://cdn.pixabay.com/photo/2021/03/07/08/41/anthill-6075527_1280.jpg"]

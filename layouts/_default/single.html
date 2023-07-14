@@ -10,11 +10,11 @@
 
   <main class="cikk">
     <a class="cikk-heading" href="{{ "/heading/" | relLangURL }}{{.Params.heading | urlize}}/">
-      {{.Params.heading}}
+      {{title .Params.heading}}
     </a>
     <div class="cikk-title">
       <h1>
-        {{.Title}}
+        {{title .Title}}
       </h1>
 
     </div>

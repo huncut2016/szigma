@@ -99,9 +99,16 @@ cite {
   --gray: rgb(205, 204, 204);
   --RGB_gray: 205, 204, 204;
   --navbar-font-family: 'Playfair Display', serif;
+  --first-article-font-family: 'Playfair Display', serif;
   --content-font-family: 'Inter', sans-serif;
   --white: white;
   --panel-width-d: min(65%, 400px);
+  --home-layout-margin: 10vw;
+  --desktop-content-count: 5;
+  --mobile-content-count: 3;
+  --content-gap: 2vw;
+  --desktop-cover-size: calc((100vw - 2 * var(--home-layout-margin) - (var(--desktop-content-count) - 1) * var(--content-gap) ) / var(--desktop-content-count));
+  --mobile-cover-size: calc((100vw - 2 * var(--home-layout-margin) - (var(--mobile-content-count) - 1) * var(--content-gap) ) / var(--mobile-content-count));
 }
 
 .light {
@@ -118,6 +125,8 @@ cite {
   --quote-line: var(--pink-3);
   --subtext: var(--black);
   --bg-quote: var(--light-pastel-beige);
+  --highlighter: var(--pink-3);
+
 }
 
 .dark {

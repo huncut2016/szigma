@@ -4,33 +4,67 @@
 {{ end }}
 
 {{ define "main" }}
+    <div class="teaser">
+        <p class="welcome">
+            Üdvözlünk a Szigmán
+        </p>
+        <p class="welcome-quote">
+            Egy 
+            <span class="highlighter">
+                szabály     
+            </span>
+            van a 
+            dzsungelben,
+            ha a 
+            <span class="highlighter">
+               tigris 
+            </span>
+            éhes, 
+            <span class="highlighter">
+                eszik
+            </span>
+            .
+        </p>
+
+    </div>
 <main class="layout">
     {{$article_pages := where .Site.RegularPages "Section" "articles"}}
+    {{$first_page := index $article_pages 0}}
+
+    {{ $latestContent := first 5 (sort (after 1 $article_pages) "Date" "desc") }}
+
 
     <div class="layout-content">
-        <div class="group0">
-            {{ range $index, $val := $article_pages}}
-                {{ if eq (mod $index 3) 0 }}
-                    {{ partial "content" (dict "content" . "class" (printf "content-group cikk%d" $index))}}
-                {{ end }}
+
+        {{ partial "main_content" (dict "content" $first_page)}}
+
+        <h1 class="latest">
+            Legújabb hírek 
+        </h1>
+
+        <div class="card-container">
+            {{ range $latestContent }}
+                {{ partial "content" (dict "content" . "class" "content") }}
             {{ end }}
         </div>
 
-        <div class="group1">
-            {{ range $index, $val := $article_pages}}
-                {{ if eq (mod $index 3) 1 }}
-                    {{ partial "content" (dict "content" . "class" (printf "content-group cikk%d" $index))}}
-                {{ end }}
-            {{ end }}
-        </div>
 
-        <div class="group2">
-            {{ range $index, $val := $article_pages}}
-                {{ if eq (mod $index 3) 2 }}
-                    {{ partial "content" (dict "content" . "class" (printf "content-group cikk%d" $index))}}
+
+        {{ range $tag, $_ := .Site.Taxonomies.heading}}
+            <h1 class="latest">
+               {{title $tag}} 
+            </h1>
+
+            <div class="card-container">
+                {{/*  {{ printf "%#v" (where $article_pages "Params.heading" "Sport")}}  */}}
+
+                {{ range first 5 (where $article_pages "Params.heading" $tag)}}
+                    {{ partial "content" (dict "content" . "class" "content") }}
                 {{ end }}
-            {{ end }}
-        </div>
+            </div>
+
+            {{/*  <a href="{{ "/heading/" | relLangURL }}{{ $tag | urlize }}">{{ $tag }}</a>  */}}
+        {{ end }}
 
     </div>
 
