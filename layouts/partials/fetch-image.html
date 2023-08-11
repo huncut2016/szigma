@@ -1,0 +1,48 @@
+{{/*  
+    Parameters:
+        @src:String => an URL string or a path in the file system 
+*/}}
+
+{{ $src:= .src}}
+{{ $image_resource := ""}}
+
+{{- /* Determine content path for error messages. */}}
+
+{{- $path := "" }}
+{{- with .Page.File }}
+  {{- $path = .Path }}
+{{- else }}
+  {{- $path = .Path }}
+{{- end }}
+
+{{- /* Get image resource. */}}
+
+{{- $u := urls.Parse $src}}
+{{- $r := "" }}
+{{- if $u.IsAbs }}
+  {{- with resources.GetRemote $u.String }}
+    {{- with .Err }}
+      {{- warnf "Unable to get remote image %s." $u.String }}
+    {{- else }}
+      {{- /* Image is a global resource (remote). */}}
+      {{- $r = . }}
+    {{- end }}
+  {{- else }}
+    {{- warnf "Unable to get remote image %s." $u.String }}
+  {{- end }}
+{{- else }}
+  {{- with .Page.Resources.Get $u.Path }}
+    {{- /* Image is a page resource. */}}
+    {{- $r = . }}
+  {{- else }}
+    {{- with resources.Get $u.Path }}
+      {{- /* Image is a global resource (local). */}}
+      {{- $r = . }}
+    {{- else }}
+      {{- warnf "Unable to get image %s" $u.Path}}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+
+{{ return $r }}

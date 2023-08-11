@@ -9,7 +9,13 @@
 */}}
 
 <div class="main-content-container {{.class}}">
-        {{ partial "image" (dict "src" .content.Params.cover "alt" "Valami" "class" "cover")}}
+        {{ partial "image" ( dict 
+                                "src" .content.Params.cover
+                                "alt" .conent.Title 
+                                "class" "cover"
+                                "loading" "eager"
+                            )
+        }}
 
         <div class="article-infos">
             <div class="authors">

@@ -1,0 +1,29 @@
+{{/*  
+    Parameters:
+        @resource:ImageResource => A HUGO image resource object
+
+        @Optional[width:Int] = the actual dimensions of the image ## TODO 
+        @Optional[height:Int] = the actual dimensions of the image ## TODO
+        @Optional[sizes:List[Int]] = scales according to the display size 
+*/}}
+
+
+{{ $r := .resource }}
+
+{{/* Definition of image sizes */}}
+{{ $sizes := default (slice "300x" "600x" "1200x") .sizes }}
+
+
+{{ $scaledImages := slice }}
+{{ range $index, $size := $sizes }}
+    {{ $scaledImage := $r.Resize ( printf "%s webp photo" $size)}}
+
+    {{/*  !!!!!!!!!!!!   */}}
+        {{/*  Only for test purposes */}}
+        {{/* $scaledImage := $scaledImage.Filter (images.Text (printf "%s" $size) (dict "size" 60 "x" 0 "y" 0)) */}}
+    {{/*  !!!!!!!!!!!!   */}}
+
+    {{ $scaledImages = $scaledImages | append $scaledImage }}
+{{ end }}
+
+{{ return $scaledImages }}

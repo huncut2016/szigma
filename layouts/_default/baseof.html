@@ -8,6 +8,7 @@
     <title>{{.Site.Title}}</title>
 
     <link rel="stylesheet" href="/defaults/default.css">
+    <link rel="stylesheet" href="/defaults/footer.css">
     <link rel="stylesheet" href="/defaults/navbar.css">
 
     {{ partial "fonts" . }}
@@ -25,5 +26,8 @@
 
 {{ end }}
 </body>
+
+{{ partial "footer" . }}
+
 
 </html>

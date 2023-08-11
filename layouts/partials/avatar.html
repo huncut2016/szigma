@@ -5,7 +5,13 @@
         @Optional[class:String] => The classname of the avatar 
     
 */}}
-{{$name := .name}}
+{{$name := .name | urlize }}
 {{$class := default "" .class}}
 
-{{ partial "image" (dict "src" (printf "https://api.dicebear.com/5.x/lorelei/png?seed=%s" $name) "alt" $name "class" $class) }}
+{{ partial "image" ( dict 
+                        "src" (printf "https://api.dicebear.com/5.x/lorelei/png?seed=%s" $name) 
+                        "alt" $name 
+                        "sizes" (slice "50x50" "100x100" "150x150")
+                        "class" $class
+                    )
+}}

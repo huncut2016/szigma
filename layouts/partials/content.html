@@ -2,14 +2,16 @@
     Parameters:
         @class:String => clasname of the main div
         @content:Article => an article
+        @Optional[image_sizes:List[Int]] => the size of the conent images
 */}}
 
 {{$class := .class}}
+{{ $image_sizes := .image_sizes}}
 
 {{ with .content }}
     <div class="{{$class}}">
         <a href="{{.RelPermalink}}">
-            {{ partial "image" (dict "src" .Params.cover "alt" .Title "class" "cover") }}
+            {{ partial "image" (dict "src" .Params.cover "alt" .Title "class" "cover" "sizes" $image_sizes) }}
             <div class="title">
                 {{.Title | truncate 60}}
 

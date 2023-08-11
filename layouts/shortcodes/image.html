@@ -12,4 +12,7 @@
 {{ $width := .Get "width" }}
 {{ $height := .Get "height" }}
 
-{{ partial "image" (dict "src" $src "alt" $alt "class" $class "width" $width "height" $height)}}
+{{ partial "image" (dict 
+                        "src" $src
+                        "alt" $alt 
+                        "class" $class)}}

@@ -1,6 +1,6 @@
 ---
 title: "Hogyan írj cikket a Szigma oldalán?"
-date: 2023-05-28T16:41:02+02:00
+date: 2023-05-28
 draft: false 
 authors: ["Zoller András"]
 heading: "újságírás"

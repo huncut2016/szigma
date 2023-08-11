@@ -4,6 +4,10 @@
 {{ end }}
 
 {{ define "main" }}
+
+    {{/*  {{ partial "test_image" (dict "src" "https://fastly.picsum.photos/id/616/1280/853.webp?hmac=BH558ntdgunelhxC4eMEz81gQDwW3JQNIsK40w3F5cg") }}  */}}
+
+
     <div class="teaser">
         <p class="welcome">
             Üdvözlünk a Szigmán
@@ -44,7 +48,12 @@
 
         <div class="card-container">
             {{ range $latestContent }}
-                {{ partial "content" (dict "content" . "class" "content") }}
+                {{ partial "content" ( dict
+                                        "content" . 
+                                        "class" "content" 
+                                        "image_sizes" (slice "100x100" "150x150" "200x200")
+                                    ) 
+                }}
             {{ end }}
         </div>
 
@@ -56,14 +65,16 @@
             </h1>
 
             <div class="card-container">
-                {{/*  {{ printf "%#v" (where $article_pages "Params.heading" "Sport")}}  */}}
-
                 {{ range first 5 (where $article_pages "Params.heading" $tag)}}
-                    {{ partial "content" (dict "content" . "class" "content") }}
+                    {{ partial "content" ( dict 
+                                            "content" . 
+                                            "class" "content" 
+                                            "image_sizes" (slice "100x100" "150x150" "200x200")
+                                        ) 
+                    }}
                 {{ end }}
             </div>
 
-            {{/*  <a href="{{ "/heading/" | relLangURL }}{{ $tag | urlize }}">{{ $tag }}</a>  */}}
         {{ end }}
 
     </div>
