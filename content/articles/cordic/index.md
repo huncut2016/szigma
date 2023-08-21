@@ -53,19 +53,19 @@ Ezzel a hirtelen fellendüléssel alkossunk meg egy algoritmust majd bizonyítsu
 
 ```julia
 function cordic(szog::Real)::Real
-	αₙ = 0.0
-	𝑣₀ = [1.0, 0.0]
+	αn = 0.0
+	v0 = [1.0, 0.0]
 	
 	for n ∈ 0:∞
-		𝜎ₙ = αₙ > szog ? -1 : 1
+		𝞼n = αn > szog ? -1 : 1
         k = 2^-n
-		𝛽ₙ = atan(k) * 𝜎ₙ
+		βn = atan(k) * 𝞼n
 		
-		R = cos(𝛽ₙ)[1 -k;
+		R = cos(βn)[1 -k;
 			        k 1]
 		
-		𝑣₀ = R * 𝑣₀
-		αₙ = αₙ + 𝛽ₙ
+		v0 = R * v0
+		αn = αn + βn
 	end
 end
 ```
@@ -93,7 +93,7 @@ Ezért, $\displaystyle \epsilon \leq \sum_{k=i+1}a_{k}$ és a legrosszabb esetbe
 
 4. $\displaystyle {\color{orange}a_i \leq \sum_{k=i+1}a_{k}}$
 
-Az algoritmus futása közben gyüjtsük össze azoknak az $a$-knak az összegét egy sorozatba, amelyek két $\sigma$ előjelváltása között történnek. Nevezzük ezt a sorozatot $T_{n}$-nek
+Az algoritmus futása közben gyüjtsük össze azoknak az $a$-knak az összegét egy sorozatba, amelyek két $\sigma$ előjelváltása között helyezkednek el. Nevezzük ezt a sorozatot $T_{n}$-nek
 
 $$
 \begin{array}{|c|c|c|c|}
@@ -171,7 +171,7 @@ $b_{0} = \sum_{k>0}b_{k} = {\color{green}a_{n} < \sum_{k>0}a_{n+k}}$
 ## Arassuk le a babérokat
 
 ### Probléma 
-A mátrix, amivel mindig forgatunk $\cos(\arctan(\sigma_n2^{-n}))\begin{bmatrix} 1 & -\sigma_n2^{-n} \\\\ \sigma_n2^{-n} & 1 \end{bmatrix}$, de mondhatnánk, hogy mit érünk azzal, hogy bonyolul $\arctan(\cos(2^{-n}))$ értékeket kell számolnunk és szorozgatnunk. Amit öröm, az holnap bánat. Gyorsan tudunk mátrixot vektorral szorozni, de a korrigáló $\cos$ értéket drága megmondani.
+A mátrix, amivel mindig forgatunk $\cos(\arctan(\sigma_n2^{-n}))\begin{bmatrix} 1 & -\sigma_n2^{-n} \\\\ \sigma_n2^{-n} & 1 \end{bmatrix}$, de mondhatnánk, hogy mit érünk azzal, hogy bonyolult $\arctan(\cos(2^{-n}))$ értékeket kell számolnunk és szorozgatnunk. Amit öröm, az holnap bánat. Gyorsan tudunk mátrixot vektorral szorozni, de a korrigáló $\cos$ értéket drága megmondani.
 
 ### A földön lelt Deák
 
