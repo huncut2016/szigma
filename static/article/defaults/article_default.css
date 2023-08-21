@@ -132,6 +132,7 @@
 
 .highlight {
     width: 85%;
+    margin: 0 auto;
 }
 
 .highlight pre {
@@ -145,6 +146,7 @@ code {
 
 code > span {
     width: 100%;
+    max-width: 50vw;
     /* display: inline-block !important; */
 }
 
