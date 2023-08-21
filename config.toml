@@ -10,11 +10,6 @@ canonifyURLs = true
   authors = 'authors'
   headings = 'heading' 
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      hardWraps = true 
-  
 [related]
   includeNewer = true 
   threshold = 0
@@ -35,3 +30,19 @@ canonifyURLs = true
 [[related.indices]]
   name = 'summary'
   weight = 10
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'xcode-dark'
+    tabWidth = 4

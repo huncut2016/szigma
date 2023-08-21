@@ -1,29 +1,29 @@
 ---
-title: "Velit eius quiquia est non velit magnam adipisci."
-date: 2012-05-25
+title: "Sit consectetur quaerat dolore."
+date: 2019-06-17
 draft: false 
-authors: ["ChatGPT"]
-heading: "facilisis"
-summary: "Quisquam dolor neque etincidunt est consectetur neque."
-images: ["https://picsum.photos/seed/2012-05-25/1280/853.webp"]
-cover: "https://picsum.photos/seed/2012-05-25/1280/853.webp"
+authors: ["Tóth Gábor","Kalos Marcell"]
+heading: "matematika"
+summary: "Non consectetur magnam magnam dolor."
+images: ["https://picsum.photos/seed/2019-06-17/1280/853.webp"]
+cover: "https://picsum.photos/seed/2019-06-17/1280/853.webp"
 ---
-# Neque est labore ipsum neque quisquam porro.        
-Velit modi etincidunt non adipisci quisquam eius. Porro adipisci dolore dolor quaerat aliquam neque adipisci. Neque labore sed eius non numquam est. Voluptatem eius porro dolore. Dolor quaerat est amet numquam ut. Consectetur dolor modi sit magnam dolor. Eius dolorem labore dolorem. Est voluptatem porro numquam labore dolore.
+# Magnam porro quiquia adipisci ipsum voluptatem quisquam.        
+Dolore numquam est ut quaerat ipsum. Ipsum sit dolore numquam porro dolore tempora. Dolor dolor velit tempora eius dolor magnam velit. Ipsum sed quiquia consectetur consectetur dolore porro. Quiquia aliquam tempora neque voluptatem tempora modi. Est magnam voluptatem etincidunt adipisci porro dolorem quiquia. Porro etincidunt sit quaerat sed. Sed quaerat quisquam neque est velit ipsum dolore. Est consectetur eius neque neque ipsum tempora voluptatem.
 
-# Non aliquam dolorem adipisci amet voluptatem quiquia quaerat.        
-Voluptatem quaerat sit amet. Porro dolor dolor eius. Est quaerat sit neque neque. Sit amet sed modi numquam dolor. Tempora porro dolore dolorem non aliquam numquam adipisci. Sit dolorem velit velit etincidunt. Est eius sed velit labore numquam. Sed dolor voluptatem quisquam est aliquam non dolore. Magnam tempora consectetur quiquia amet.
+# Est dolorem adipisci quisquam.        
+Ut velit quisquam dolor quisquam neque porro. Est dolore amet non voluptatem porro ut quiquia. Velit numquam ut dolorem adipisci eius consectetur quisquam. Voluptatem voluptatem numquam est consectetur porro sit tempora. Quiquia aliquam sit modi non. Magnam neque numquam sit quisquam.
 
-# Adipisci tempora tempora ut dolorem ipsum.        
-Consectetur velit quaerat modi consectetur sed consectetur non. Non aliquam ipsum sed dolor quaerat. Porro dolorem sed voluptatem dolor est amet. Dolor quisquam labore magnam ut dolor. Voluptatem labore aliquam voluptatem dolore aliquam ipsum dolor. Consectetur sit quisquam adipisci est velit. Aliquam dolore quaerat dolorem porro modi neque tempora. Est consectetur sed dolorem ut porro voluptatem adipisci. Amet quaerat ipsum quisquam est ut dolor consectetur. Eius sit labore modi non magnam etincidunt.
+# Sed dolor neque sit ipsum non modi.        
+Tempora porro numquam eius velit. Numquam magnam eius consectetur sed. Sit adipisci quisquam aliquam. Quiquia adipisci porro ipsum quaerat. Modi dolor velit consectetur adipisci porro dolorem aliquam. Ipsum neque quaerat magnam dolorem dolorem. Aliquam non neque eius. Ipsum est non ut amet amet amet.
 
-# Voluptatem velit quiquia amet labore.        
-Consectetur non ut sit consectetur quiquia non magnam. Amet dolorem quisquam numquam quisquam sit est. Tempora non ut velit. Sed numquam modi labore sed. Neque sit est sed. Labore labore labore non modi. Dolore quaerat quiquia tempora velit tempora. Adipisci consectetur non porro dolor velit velit.
+# Quaerat etincidunt ipsum aliquam quaerat voluptatem est.        
+Amet modi adipisci numquam. Dolor porro est dolor consectetur neque. Etincidunt consectetur magnam adipisci quiquia ipsum consectetur. Ut non quiquia porro quisquam eius dolorem. Labore etincidunt numquam sit tempora consectetur. Quisquam quiquia dolore voluptatem etincidunt.
 
-# Dolor est voluptatem quiquia.        
-Aliquam sit adipisci voluptatem ipsum porro. Dolore est quiquia consectetur ipsum amet. Sit adipisci eius numquam neque aliquam adipisci eius. Ipsum aliquam sit ipsum eius tempora consectetur. Quaerat sit dolor dolore. Magnam quaerat est sit labore etincidunt magnam. Eius consectetur quisquam quiquia tempora labore quaerat consectetur. Eius numquam consectetur amet modi adipisci.
+# Porro labore non sed sit sed amet quiquia.        
+Velit ipsum voluptatem non aliquam. Quisquam ut est magnam dolore voluptatem velit. Porro consectetur ipsum numquam amet est quiquia adipisci. Quaerat dolor numquam dolore non. Consectetur ipsum neque quiquia amet porro. Dolor dolore amet porro neque neque. Adipisci numquam etincidunt numquam dolor. Dolor labore porro sit quisquam. Labore est quisquam porro ut est ut. Quaerat labore amet adipisci porro.
 
-# Porro non non consectetur quiquia velit quisquam velit.        
-Dolore non non tempora porro aliquam. Sit quisquam voluptatem quisquam dolor eius. Numquam consectetur consectetur dolor consectetur labore modi ut. Amet porro tempora etincidunt. Dolor ipsum dolore numquam. Voluptatem sed dolore tempora. Dolorem amet sit non.
+# Magnam etincidunt non ut non non.        
+Modi neque sed porro porro magnam non. Modi quiquia neque adipisci. Quaerat aliquam ut etincidunt quisquam est est. Dolorem modi non neque non dolor sit. Non velit numquam est voluptatem ut velit.
 
 

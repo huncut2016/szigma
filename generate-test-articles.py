@@ -48,10 +48,10 @@ images: ["https://picsum.photos/seed/{random_date}/1280/853.webp"]
 cover: "https://picsum.photos/seed/{random_date}/1280/853.webp"
 ---
 """
-    seed = random.randint(1, 6)
+    seed = random.randint(1, 20)
 
     for j in range(6):
-        image = f'{{{{<image src="https://picsum.photos/seed/{i}{j}{seed}/1280/853.webp">}}}}' if i % seed == 0 else ""
+        image = f'[](https://picsum.photos/seed/{i}{j}{seed}/1280/853.webp")' if i % seed == 0 else ""
 
         par = f"""# {lorem.sentence()}        
 {lorem.paragraph()}

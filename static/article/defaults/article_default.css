@@ -118,3 +118,34 @@
     margin: 0 0 15px 0;
     align-items: flex-start;
 }
+
+.md__image  img{
+    margin: auto 0;
+    max-width: 80%;
+    width: 100%;
+    height: auto;
+}
+
+.md__image  {
+    text-align: center;
+}
+
+.highlight {
+    width: 85%;
+}
+
+.highlight pre {
+    padding: 1rem;
+    overflow: auto;
+}
+
+code {
+    width: 100%;
+}
+
+code > span {
+    width: 100%;
+    /* display: inline-block !important; */
+}
+
+
