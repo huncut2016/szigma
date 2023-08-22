@@ -1,10 +1,10 @@
 ---
-title: "Az Apollo-program gyöngye, avagy a Cordic algoritmus"
+title: "Az Apollo-program gyöngye, avagy a CORDIC-algoritmus"
 date: 2023-08-21T11:54:31+02:00
 draft: false 
 authors: ["Zoller András", "Máté Lőrinc"]
 heading: "Matematika"
-summary: "A CORDIC (Coordinate Rotation Digital Computer) algoritmus egy iteratív számítási módszer, melyet gyakran trigonometriai műveletekhez használnak digitális eszközökben. Az algoritmus forgatások és transzlációk segítségével közelíti a trigonometriai függvényeket, és egyszerű bitműveletekkel hatékonyan implementálható."
+summary: "A CORDIC-algoritmus (Coordinate Rotation Digital Computer) egy iteratív számítási módszer, melyet gyakran trigonometriai műveletekhez használnak digitális eszközökben. Az algoritmus forgatások és transzlációk segítségével közelíti a trigonometriai függvényeket, és egyszerű bitműveletekkel hatékonyan implementálható."
 cover: "images/cordic-cover.png"
 images: ["images/cordic-cover.png"]
 katex: true 
@@ -12,22 +12,22 @@ katex: true
 
 # Nagy vonalakban 
 
-A CORDIC (Coordinate Rotation Digital Computer) algoritmus egy iteratív numerikus eljárás, amelyet gyakran használnak trigonometriai és más matematikai műveletek számítására digitális számítógépekben és beágyazott rendszerekben. Az algoritmus célja, hogy forgatások és transzlációk segítségével átalakítsa a bemeneti értékeket olyan értékekké, amelyeknek a trigonometriai függvényei (például szinusz és koszinusz) könnyen számíthatók.
+A CORDIC-algoritmus (Coordinate Rotation Digital Computer) egy iteratív numerikus eljárás, amelyet gyakran használnak trigonometriai és más matematikai műveletek számítására digitális számítógépekben és beágyazott rendszerekben. Az algoritmus célja, hogy forgatások és transzlációk segítségével átalakítsa a bemeneti értékeket olyan értékekké, amelyeknek a trigonometriai függvényei (például szinusz és koszinusz) könnyen számíthatók.
 
-A CORDIC algoritmus előnye, hogy csak egyszerű bitműveleteket és összeadásokat használ, így gyors és hatékony implementációt tesz lehetővé hardveres és szoftveres környezetben egyaránt. Az algoritmust széles körben alkalmazzák digitális jelfeldolgozásban, navigációs rendszerekben és egyéb alkalmazásokban, ahol gyors és pontos trigonometriai számításokra van szükség.
+A CORDIC-algoritmus előnye, hogy csak egyszerű bitműveleteket és összeadásokat használ, így gyors és hatékony implementációt tesz lehetővé hardveres és szoftveres környezetben egyaránt. Az algoritmust széles körben alkalmazzák digitális jelfeldolgozásban, navigációs rendszerekben és egyéb alkalmazásokban, ahol gyors és pontos trigonometriai számításokra van szükség.
 
 # Hogyan is működik?
 
 ![cordic algoritmus képe](images/CORDIC1.png)
-Vegyük a 2 dimenziós forgatásmátrixot $R^{\alpha} =  \begin{bmatrix}\cos(\alpha) & -\sin(\alpha) \\\\ \sin(\alpha) & \cos(\alpha) \end{bmatrix}$
+Vegyük a 2 dimenziós forgatásmátrixot: $R^{\alpha} =  \begin{bmatrix}\cos(\alpha) & -\sin(\alpha) \\\\ \sin(\alpha) & \cos(\alpha) \end{bmatrix}$
 
 Kell találni egy módszert, amely teljesíti ezeket a feltételeket: $v_{n+1} = v_{n}R^{\alpha_{n}}$ és $\displaystyle\lim_{ n \to \infty }v_{n} = v'$
 
-Mivel a számítógépek nagyon jók abban, hogy összeadjanak-kivonjanak, és osszanak-szorozzanak kettővel (binárisban el kell tolni a számot egyel jobbra, vagy balra), ezért az algoritmust erre kell optimalizálni. Ezek az kis nüanszok akkor igazán fontosak, ha például a CPU, ami futtatja az programunkat nem támogatja a lebegőpontos számokat.
+Mivel a számítógépek nagyon jók abban, hogy összeadjanak-kivonjanak és osszanak-szorozzanak kettővel (binárisban el kell tolni a számot eggyel jobbra vagy balra), ezért az algoritmust erre kell optimalizálni. Ezek a kis nüanszok akkor igazán fontosak, ha például a CPU, ami futtatja az programunkat, nem támogatja a lebegőpontos számokat.
 
-Kövessünk el egy cselt és $R^{\alpha}$-ból emeljünk ki $\cos(\alpha)$-t $\implies$ $\cos(\alpha)\begin{bmatrix} 1 & -\tan(\alpha) \\\\ \tan(\alpha) & 1 \end{bmatrix}$
+Vessünk be egy cselt, és $R^{\alpha}$-ból emeljünk ki $\cos(\alpha)$-t $\implies$ $\cos(\alpha)\begin{bmatrix} 1 & -\tan(\alpha) \\\\ \tan(\alpha) & 1 \end{bmatrix}$
 
-Egyelőre ne foglalkozzunk a $\cos \alpha$ szorzóval, hanem figyeljük meg, hogy mi lenne, ha $\tan \alpha$ pont valami $2$ negatív hatvány lenne 
+Egyelőre ne foglalkozzunk a $\cos \alpha$ szorzóval, hanem figyeljük meg, hogy mi lenne, ha $\tan \alpha$ pont $2$ negatív hatványa lenne:
 
 $$
 \begin{align}
@@ -47,7 +47,7 @@ x_{i} - 2^{-n}y_{i} \\\\
 $$
 
 Csak $2$-vel való osztás és összeadás-kivonás, pont amire gyúrtunk.
-Ezzel a hirtelen fellendüléssel alkossunk meg egy algoritmust majd bizonyítsuk be, hogy működik is.
+Ezzel a hirtelen fellendüléssel alkossunk meg egy algoritmust, majd bizonyítsuk be, hogy működik is.
 
 # Az algoritmus
 
@@ -69,31 +69,31 @@ function cordic(szog::Real)::Real
 	end
 end
 ```
-Összefoglalva annyit csinál az algoritmus, hogy addig forgatja $v$-t, amíg $\alpha$ túl nem megy a megadott szögön, ha ez bekövetkezik, akkor visszaforgatja (nyilván mindig $\arctan(2^{-n})$ szöggel)
+Összefoglalva annyit csinál az algoritmus, hogy addig forgatja $v$-t, amíg $\alpha$ túl nem megy a megadott szögön. Ha ez bekövetkezik, akkor visszaforgatja (nyilván mindig $\arctan(2^{-n})$ szöggel).
 
 ## Bizonyítás
 
-Általánosan feltételezzünk egy sorozatot $(a_{n})_{n\in\mathbb{N}}$
+Határozzunk meg egy $a_{n}$ sorozatot. $n\in\mathbb{N}$
 
-Vegyünk egy pontot $d$-t és valamilyen algoritmus szerint adjuk össze/vonjuk ki a sorozat tagjait úgy, hogy $d$-hez konvergáljon. Formálisan: $\sum \sigma_{n}a_{n} \to d \quad \sigma \in \\{1, -1\\}$ 
+Vegyünk egy $d$ pontot, és valamilyen algoritmus szerint adjuk össze/vonjuk ki a sorozat tagjait úgy, hogy $d$-hez konvergáljon. Formálisan: $\sum \sigma_{n}a_{n} \to d \quad \sigma \in \\{-1; 1\\}$ 
 
-Feltételezzük ezeket:
+Tételezzük fel ezeket:
 
 1. ${\color{orange}a_{n} \to 0}$ 
 
-1. ${\color{orange}a_{n} > a_{n+1}}$ or ${\color{orange}a_{n} < a_{n+1}}$
+1. ${\color{orange}a_{n} > a_{n+1}}$ vagy ${\color{orange}a_{n} < a_{n+1}}$
 
-1. $\sum a_{n} \geq |d|$ , ha ez nem lenne igaz, akkor soha nem tudnánk elérni $d$-t
+1. ${\color{orange}\sum a_{n} \geq |d|}$ (ha ez nem lenne igaz, soha nem tudnánk elérni $d$-t)
 
-**Evidens kitétel**:  Ha valami $a_{i}$ túllő $d$-n valami $\epsilon$ hibával, akkor legalább kell még $\epsilon$ hogy visszatérjünk 
+**Evidens kitétel**:  Ha $a_{i}$ túllő $d$-n valami $\epsilon$ hibával, akkor kell még legalább $\epsilon$, hogy visszatérjünk. 
 
 ![cordic algoritmus képe](images/CORDIC2.png)
 
-Ezért, $\displaystyle \epsilon \leq \sum_{k=i+1}a_{k}$ és a legrosszabb esetben:
+Ezért $\displaystyle \epsilon \leq \sum_{k=i+1}a_{k}$, és a legrosszabb esetben:
 
 4. $\displaystyle {\color{orange}a_i \leq \sum_{k=i+1}a_{k}}$
 
-Az algoritmus futása közben gyüjtsük össze azoknak az $a$-knak az összegét egy sorozatba, amelyek két $\sigma$ előjelváltása között helyezkednek el. Nevezzük ezt a sorozatot $T_{n}$-nek
+Az algoritmus futása közben gyüjtsük össze azoknak az $a$-knak az összegét egy sorozatba, amelyek két $\sigma$ előjelváltása között helyezkednek el. Nevezzük ezt a sorozatot $T_{n}$-nek:
 
 $$
 \begin{array}{|c|c|c|c|}
@@ -109,9 +109,9 @@ T_2   & \sum_{k=i_{1}+1}^{i_{2}}a_{k} & i_{2} & -1          \\\\
 \end{array}
 $$
 
-**I. Szcenárió**: Ha $\exist \max{\color{orange}n}$ ($\sigma_{i}$ véges alkalomkor vált előjelet),  az azt jelenti, hogy az algoritmus elért egy olyan pontot, ahol $\epsilon_{i} = \sum_{k=i+1}a_{k}$ ami azt jelenti, hogy az összeg konvergál $d$-hez
+**I. eset**: Ha $\exist \max{\color{orange}n}$ ($\sigma_{i}$ véges alkalomkor vált előjelet), az azt jelenti, hogy az algoritmus elért egy olyan pontot, ahol $\epsilon_{i} = \sum_{k=i+1}a_{k}$, vagyis az összeg konvergál $d$-hez.
 
-**II. Szcenárió**: $\sum_{n=0}(-1)^nT_{k}$ 
+**II. eset**: $\sum_{n=0}(-1)^nT_{k}$ 
 ![cordic algoritmus képe](images/CORDIC3.png)
 
 $\epsilon_{1} = |c+p-d| \quad \epsilon_{2}=|d-p|$
@@ -119,9 +119,9 @@ $\epsilon_{1} = |c+p-d| \quad \epsilon_{2}=|d-p|$
 
 $d \in \delta=[\epsilon_{1}; \epsilon_{2}] \quad \quad p>0$
 
-$|\delta| = \epsilon_{1}+\epsilon_{2} = c \to 0 \implies \text{converges}$
+$|\delta| = \epsilon_{1}+\epsilon_{2} = c \to 0 \implies \text{konvergens}$
 
-#### Ebben a specifikus eseztben 
+#### Ebben a specifikus esetben 
 
 $a_{n} = \tan^{-1}(2^{-n})$
 1. $a_{n} \to 0 \quad (2^{-n} \to 0 \text{  és } \tan ^{-1}(0) = 0)$
@@ -160,22 +160,23 @@ $2\tan ^{-1}(2^{-n}) = \color{orange}2a_{n}$
 
 $a_{n-1} < 2a_{n} \implies \frac{a_{n}}{2} < a_{n+1}$
 
-Hozzuk létre $\frac{b_{n}}{2} = b_{n+1}$ és $b_{0} = a_{n}$
+Hozzuk létre a $b_{n}$ sorozatot, $b_{0} := a_{n}$ és $b_{n+1} := \frac{b_{n}}{2}$
 
 $b_{k} < a_{n+k} \quad k>0 \implies \sum_{k>0}b_{k} < \sum_{k>0}a_{n+k}$
 
 $b_{0} = \sum_{k>0}b_{k} = {\color{green}a_{n} < \sum_{k>0}a_{n+k}}$ 
 
-És beláttuk, hogy az algoritmus működni fog, nyilván olyan könnyítéseket vettünk, minthogy $d \in [-90^{\circ}; 90^{\circ}]$, de mindenki tudja, hogy egy tükrözéssel ezt kit tudjuk terjeszteni.
+És beláttuk, hogy az algoritmus működni fog. Nyilván olyan könnyítéseket vettünk, mint $d \in [-90^{\circ}; 90^{\circ}]$, de mindenki tudja, hogy ezt egy tükrözéssel ki tudjuk terjeszteni.
 
 ## Arassuk le a babérokat
 
 ### Probléma 
-A mátrix, amivel mindig forgatunk $\cos(\arctan(\sigma_n2^{-n}))\begin{bmatrix} 1 & -\sigma_n2^{-n} \\\\ \sigma_n2^{-n} & 1 \end{bmatrix}$, de mondhatnánk, hogy mit érünk azzal, hogy bonyolult $\arctan(\cos(2^{-n}))$ értékeket kell számolnunk és szorozgatnunk. Amit öröm, az holnap bánat. Gyorsan tudunk mátrixot vektorral szorozni, de a korrigáló $\cos$ értéket drága megmondani.
+A mátrix, amivel mindig forgatunk, $\cos(\arctan(\sigma_n2^{-n}))\begin{bmatrix} 1 & -\sigma_n2^{-n} \\\\ \sigma_n2^{-n} & 1 \end{bmatrix}$, de mondhatnánk, hogy mit érünk azzal, hogy bonyolult $\arctan(\cos(2^{-n}))$ értékeket kell számolnunk és szorozgatnunk. 
+Ami az egyik oldalon nyertünk, azt a másikon elveszítettük. Bár gyorsan tudunk mátrixot vektorral szorozni, de a korrigáló $\cos$ értéket meghatározni nagyon drága lett.
 
-### A földön lelt Deák
+### Az út mellett talált érme 
 
-Aki jártasabb trigonometriából, az tudja, hogy $\cos\alpha = \cos-\alpha$, ezért $\sigma_n$-et el is hagyhatjuk $\cos(\arctan(2^{-n}))\begin{bmatrix} 1 & -\sigma_n2^{-n} \\\\ \sigma_n2^{-n} & 1 \end{bmatrix}$. Aki még jártasabb, az néhány átalakítással kihozhatja, hogy $\cos(\arctan(2^{-n})) = \frac{1}{\sqrt{ 1+2^{-2n} }}$ és ha jobban megnézzük, akkor az az algoritmust így is felírhatjuk:
+Aki jártasabb trigonometriában, az tudja, hogy $\cos\alpha = \cos-\alpha$, ezért $\sigma_n$-et el is hagyhatjuk: $\cos(\arctan(2^{-n}))\begin{bmatrix} 1 & -\sigma_n2^{-n} \\\\ \sigma_n2^{-n} & 1 \end{bmatrix}$. Aki még jártasabb, az néhány átalakítással kihozhatja, hogy $\cos(\arctan(2^{-n})) = \frac{1}{\sqrt{ 1+2^{-2n} }}$, és ha jobban megnézzük, akkor az algoritmust így is felírhatjuk:
 $\displaystyle 
 \begin{bmatrix}
     x_{i+1}\\\\ 
@@ -196,7 +197,7 @@ $\displaystyle K(n)=\prod_{i=0}^{n-1}K_{i}=\prod_{i=0}^{n-1}{\frac {1}{\sqrt {1+
 
 $\displaystyle K=\lim _{n\to \infty }K(n)\approx 0.6072529350088812561694$
 
-Meg is találtuk az aranytojást, elég egy konstanst kiszámítani, majd a végén megszorozni vele a vektorunkat. Az $\arctan(2^{-n})$ értékeket meg szintén előre ki tudjuk számítani, soha nem változnak. (amennyiben nem lenne elég, nagyon kicsi szögekre $\arctan x \approx x$) 
+Meg is találtuk az aranytojást: elég egy konstanst kiszámítani, majd a végén megszorozni vele a vektorunkat. Az $\arctan(2^{-n})$ értékeket meg szintén ki tudjuk előre számítani, soha nem változnak. (Amennyiben ez nem lenne elég, nagyon kicsi szögekre $\arctan x \approx x$.) 
 
 ## Végső algoritmus
 
