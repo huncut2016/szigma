@@ -98,7 +98,7 @@ Az algoritmus futása közben gyüjtsük össze azoknak az $a$-knak az összegé
 $$
 \begin{array}{|c|c|c|c|}
 \hline
-{\color{orange}\mathbf{T_n}}   & {\color{orange}\mathbf{\sum a}}                                              & {\color{orange}\mathbf{i}} &{\color{orange}\mathbf{\sigma_i}}  \\\\
+{\color{purple}\mathbf{T_n}}   & {\color{purple}\mathbf{\sum a}}                                              & {\color{purple}\mathbf{i}} &{\color{purple}\mathbf{\sigma_i}}  \\\\
 \hline
 T_1   & \sum_{k=0}^{i_{1}}a_{k}                  & i_{1} & 1          \\\\
 \hline
@@ -109,7 +109,7 @@ T_2   & \sum_{k=i_{1}+1}^{i_{2}}a_{k} & i_{2} & -1          \\\\
 \end{array}
 $$
 
-**I. eset**: Ha $\exist \max{\color{orange}n}$ ($\sigma_{i}$ véges alkalomkor vált előjelet), az azt jelenti, hogy az algoritmus elért egy olyan pontot, ahol $\epsilon_{i} = \sum_{k=i+1}a_{k}$, vagyis az összeg konvergál $d$-hez.
+**I. eset**: Ha $\exist \max n$ ($\sigma_{i}$ véges alkalomkor vált előjelet), az azt jelenti, hogy az algoritmus elért egy olyan pontot, ahol $\epsilon_{i} = \sum_{k=i+1}a_{k}$, vagyis az összeg konvergál $d$-hez.
 
 **II. eset**: $\sum_{n=0}(-1)^nT_{k}$ 
 ![cordic algoritmus képe](images/CORDIC3.png)
@@ -124,10 +124,10 @@ $|\delta| = \epsilon_{1}+\epsilon_{2} = c \to 0 \implies \text{konvergens}$
 #### Ebben a specifikus esetben 
 
 $a_{n} = \tan^{-1}(2^{-n})$
-1. $a_{n} \to 0 \quad (2^{-n} \to 0 \text{  és } \tan ^{-1}(0) = 0)$
-2. $a_{n} < a_{n+1}$
-3. $d\in[-90^{\circ};90^{\circ}]$ és $\sum a_{n} \approx 99.882$
-4. $a_{n} \leq \sum_{i=n+1}a_{n}$
+1. $\color{orange}{ a_{n} \to 0} \quad (2^{-n} \to 0 \text{  és } \tan ^{-1}(0) = 0)$
+2. $\color{orange} a_{n} < a_{n+1}$
+3. $\color{orange} d\in[-90^{\circ};90^{\circ}]$ és $\sum a_{n} \approx 99.882$
+4. $\color{orange} a_{n} \leq \sum_{i=n+1}a_{n}$
 
 $$
 \begin{align}
