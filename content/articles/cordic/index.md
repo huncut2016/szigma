@@ -27,7 +27,7 @@ Mivel a számítógépek nagyon jók abban, hogy összeadjanak-kivonjanak és os
 
 Vessünk be egy cselt, és $R^{\alpha}$-ból emeljünk ki $\cos(\alpha)$-t $\implies$ $\cos(\alpha)\begin{bmatrix} 1 & -\tan(\alpha) \\\\ \tan(\alpha) & 1 \end{bmatrix}$
 
-Egyelőre ne foglalkozzunk a $\cos \alpha$ szorzóval, hanem figyeljük meg, hogy mi lenne, ha $\tan \alpha$ pont $2$ negatív hatványa lenne:
+Egyelőre ne foglalkozzunk a $\cos \alpha$ szorzóval, hanem figyeljük meg, hogy mi lenne, ha $\tan \alpha$ pont $2$ negatív hatványa lenne (ez azért előnyös feltételezés, mert kettő hatványokkal szorozni-osztani nagyon gyors a számítógépeken):
 
 $$
 \begin{align}
@@ -36,17 +36,17 @@ $$
 2^{-n} & 1 \\\\
 \end{bmatrix}
 \begin{bmatrix}
-x_{i} \\\\
-y_{i} \\\\
+x_{k} \\\\
+y_{k} \\\\
 \end{bmatrix}=
 \begin{bmatrix}
-x_{i} - 2^{-n}y_{i} \\\\
- 2^{-n} x_{i} + y_{i}
+x_{k} - 2^{-n}y_{k} \\\\
+ 2^{-n} x_{k} + y_{k}
 \end{bmatrix} 
 \end{align}
 $$
 
-Csak $2$-vel való osztás és összeadás-kivonás, pont amire gyúrtunk.
+Csak $2$-vel való osztás és összeadás-kivonás, pont, amire gyúrtunk.
 Ezzel a hirtelen fellendüléssel alkossunk meg egy algoritmust, majd bizonyítsuk be, hogy működik is.
 
 # Az algoritmus
@@ -81,35 +81,33 @@ Tételezzük fel ezeket:
 
 1. ${\color{orange}a_{n} \to 0}$ 
 
-1. ${\color{orange}a_{n} > a_{n+1}}$ vagy ${\color{orange}a_{n} < a_{n+1}}$
-
 1. ${\color{orange}\sum a_{n} \geq |d|}$ (ha ez nem lenne igaz, soha nem tudnánk elérni $d$-t)
 
 **Evidens kitétel**:  Ha $a_{i}$ túllő $d$-n valami $\epsilon$ hibával, akkor kell még legalább $\epsilon$, hogy visszatérjünk. 
 
 ![cordic algoritmus képe](images/CORDIC2.png)
 
-Ezért $\displaystyle \epsilon \leq \sum_{k=i+1}a_{k}$, és a legrosszabb esetben:
+Ezért $\displaystyle \epsilon \leq \sum_{k=m+1}a_{k}$, és a legrosszabb esetben:
 
-4. $\displaystyle {\color{orange}a_i \leq \sum_{k=i+1}a_{k}}$
+3. $\displaystyle {\color{orange}a_m \leq \sum_{k=m+1}a_{k}}$
 
-Az algoritmus futása közben gyüjtsük össze azoknak az $a$-knak az összegét egy sorozatba, amelyek két $\sigma$ előjelváltása között helyezkednek el. Nevezzük ezt a sorozatot $T_{n}$-nek:
+Az algoritmus futása közben gyüjtsük össze azoknak az $a$-knak az összegét egy sorozatba, amelyek két $\sigma$ előjelváltása között helyezkednek el (másképpen: minden $T_n$ egy $\sigma$ periódusba tartozó $a$-k összege). Nevezzük ezt a sorozatot $T_{n}$-nek:
 
 $$
 \begin{array}{|c|c|c|c|}
 \hline
-{\color{purple}\mathbf{T_n}}   & {\color{purple}\mathbf{\sum a}}                                              & {\color{purple}\mathbf{i}} &{\color{purple}\mathbf{\sigma_i}}  \\\\
+{\color{purple}\mathbf{T_n}}   & {\color{purple}\mathbf{\sum a}}                                              & {\color{purple}\mathbf{m}} &{\color{purple}\mathbf{\sigma_m}}  \\\\
 \hline
-T_1   & \sum_{k=0}^{i_{1}}a_{k}                  & i_{1} & 1          \\\\
+T_1   & \sum_{k=0}^{m_{1}}a_{k}                  & m_{1} & 1          \\\\
 \hline
-T_2   & \sum_{k=i_{1}+1}^{i_{2}}a_{k} & i_{2} & -1          \\\\
+T_2   & \sum_{k=m_{1}+1}^{m_{2}}a_{k} & m_{2} & -1          \\\\
 \hline
 \vdots & \vdots                                         & \vdots    \\\\
 \hline
 \end{array}
 $$
 
-**I. eset**: Ha $\exist \max n$ ($\sigma_{i}$ véges alkalomkor vált előjelet), az azt jelenti, hogy az algoritmus elért egy olyan pontot, ahol $\epsilon_{i} = \sum_{k=i+1}a_{k}$, vagyis az összeg konvergál $d$-hez.
+**I. eset**: Ha $\exist \max n$ ($\sigma_{m}$ véges alkalomkor vált előjelet), az azt jelenti, hogy az algoritmus elért egy olyan pontot, ahol $\epsilon_{m} = \sum_{k=m+1}a_{k}$, vagyis az összeg konvergál $d$-hez.
 
 **II. eset**: $\sum_{n=0}(-1)^nT_{k}$ 
 ![cordic algoritmus képe](images/CORDIC3.png)
@@ -125,9 +123,8 @@ $|\delta| = \epsilon_{1}+\epsilon_{2} = c \to 0 \implies \text{konvergens}$
 
 $a_{n} = \tan^{-1}(2^{-n})$
 1. $\color{orange}{ a_{n} \to 0} \quad (2^{-n} \to 0 \text{  és } \tan ^{-1}(0) = 0)$
-2. $\color{orange} a_{n} < a_{n+1}$
-3. $\color{orange} d\in[-90^{\circ};90^{\circ}]$ és $\sum a_{n} \approx 99.882$
-4. $\color{orange} a_{n} \leq \sum_{i=n+1}a_{n}$
+1. $\color{orange} d\in[-90^{\circ};90^{\circ}]$ és $\sum a_{n} \approx 99.882$
+1. $\color{orange} a_{n} \leq \sum_{i=n+1}a_{n}$
 
 $$
 \begin{align}
@@ -172,23 +169,23 @@ $b_{0} = \sum_{k>0}b_{k} = {\color{green}a_{n} < \sum_{k>0}a_{n+k}}$
 
 ### Probléma 
 A mátrix, amivel mindig forgatunk, $\cos(\arctan(\sigma_n2^{-n}))\begin{bmatrix} 1 & -\sigma_n2^{-n} \\\\ \sigma_n2^{-n} & 1 \end{bmatrix}$, de mondhatnánk, hogy mit érünk azzal, hogy bonyolult $\arctan(\cos(2^{-n}))$ értékeket kell számolnunk és szorozgatnunk. 
-Ami az egyik oldalon nyertünk, azt a másikon elveszítettük. Bár gyorsan tudunk mátrixot vektorral szorozni, de a korrigáló $\cos$ értéket meghatározni nagyon drága lett.
+Amit az egyik oldalon nyertünk, azt a másikon elveszítettük. Bár gyorsan tudunk mátrixot vektorral szorozni, de a korrigáló $\cos$ értéket kiszámolni nagyon erőforrás-igényes lett.
 
 ### Az út mellett talált érme 
 
 Aki jártasabb trigonometriában, az tudja, hogy $\cos\alpha = \cos-\alpha$, ezért $\sigma_n$-et el is hagyhatjuk: $\cos(\arctan(2^{-n}))\begin{bmatrix} 1 & -\sigma_n2^{-n} \\\\ \sigma_n2^{-n} & 1 \end{bmatrix}$. Aki még jártasabb, az néhány átalakítással kihozhatja, hogy $\cos(\arctan(2^{-n})) = \frac{1}{\sqrt{ 1+2^{-2n} }}$, és ha jobban megnézzük, akkor az algoritmust így is felírhatjuk:
 $\displaystyle 
 \begin{bmatrix}
-    x_{i+1}\\\\ 
-    y_{i+1}
-\end{bmatrix}= K_{i}
+    x_{k+1}\\\\ 
+    y_{k+1}
+\end{bmatrix}= K_{k}
 \begin{bmatrix}
-1 &-\sigma_{i}2^{-i}\\\\
-\sigma_{i}2^{-i} &1
+1 &-\sigma_{k}2^{-k}\\\\
+\sigma_{k}2^{-k} &1
 \end{bmatrix}
 \begin{bmatrix}
-x_{i} \\\\
- y_{i}
+x_{k} \\\\
+ y_{k}
 \end{bmatrix}$
 
 $\displaystyle K_{i}={\frac{1}{\sqrt{1+2^{-2i}}}}$
@@ -206,12 +203,16 @@ Meg is találtuk az aranytojást: elég egy konstanst kiszámítani, majd a vég
 #include <iostream>
 #include <math.h>
 
-constexpr float atans[41] = {45.0,
-                             26.56505117707799,
-                             14.036243467926479,
-                             ...
-                             1.0422041580219652e-10,
-                             5.211020790109826e-11};
+constexpr int num_atans = 41;
+constexpr float atans[num_atans] = {0.7853981633974483,
+                                    0.4636476090008061,
+                                    0.24497866312686414,
+                                    0.12435499454676144,
+                                    0.06241880999595735,
+                                    ...
+                                    3.637978807091713e-12,
+                                    1.8189894035458565e-12,
+                                    9.094947017729282e-13};
 
 float cordic_sin(float angle) {
   float epsilon = 0,
@@ -228,14 +229,19 @@ float cordic_sin(float angle) {
   while (epsilon > err) {
     float sigma = alpha > angle ? -1 : 1;
 
-    float factor = sigma * ldexp(1, i);
+    float powerOfTwo = ldexp(1, -i); // ldexp(num, exp) = num*(2^exp)
+    float factor = sigma * powerOfTwo;
+
+    // == Mátrix szorzás ==
     xp = x - y * factor;
     yp = y + x * factor;
 
     x = xp;
     y = yp;
 
-    alpha += sign * atans[i];
+    // == Alfa frissítése ==
+    float atan = i < num_atans ? atans[i] : poweroftwo; // arctan(x) ≈ x ha x kicsi
+    alpha += sign * atan;
 
     ++i;
     epsilon = abs(alpha - angle);
@@ -244,4 +250,6 @@ float cordic_sin(float angle) {
   return y * K;
 }
 ```
-
+{{<cite>}}
+C++ algoritmus
+{{</cite>}}
