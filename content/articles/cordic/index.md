@@ -23,7 +23,7 @@ Vegyük a 2 dimenziós forgatásmátrixot: $R^{\alpha} =  \begin{bmatrix}\cos(\a
 
 Kell találni egy módszert, amely teljesíti ezeket a feltételeket: $v_{n+1} = v_{n}R^{\alpha_{n}}$ és $\displaystyle\lim_{ n \to \infty }v_{n} = v'$
 
-Mivel a számítógépek nagyon jók abban, hogy összeadjanak-kivonjanak és osszanak-szorozzanak kettővel (binárisban el kell tolni a számot eggyel jobbra vagy balra), ezért az algoritmust erre kell optimalizálni. Ezek a kis nüanszok akkor igazán fontosak, ha például a CPU, ami futtatja az programunkat, nem támogatja a lebegőpontos számokat.
+Mivel a számítógépek nagyon jók abban, hogy összeadjanak-kivonjanak és osszanak-szorozzanak kettővel (binárisban el kell tolni a számot eggyel jobbra vagy balra), ezért az algoritmust erre kell optimalizálni. Ezek a kis nüanszok akkor igazán fontosak, ha például a CPU, ami futtatja a programunkat, nem támogatja a lebegőpontos számokat.
 
 Vessünk be egy cselt, és $R^{\alpha}$-ból emeljünk ki $\cos(\alpha)$-t $\implies$ $\cos(\alpha)\begin{bmatrix} 1 & -\tan(\alpha) \\\\ \tan(\alpha) & 1 \end{bmatrix}$
 
@@ -31,6 +31,7 @@ Egyelőre ne foglalkozzunk a $\cos \alpha$ szorzóval, hanem figyeljük meg, hog
 
 $$
 \begin{align}
+\notag
 \begin{bmatrix}
 1 & - 2^{-n} \\\\
 2^{-n} & 1 \\\\
@@ -83,7 +84,7 @@ Tételezzük fel ezeket:
 
 1. ${\color{orange}\sum a_{n} \geq |d|}$ (ha ez nem lenne igaz, soha nem tudnánk elérni $d$-t)
 
-**Evidens kitétel**:  Ha $a_{i}$ túllő $d$-n valami $\epsilon$ hibával, akkor kell még legalább $\epsilon$, hogy visszatérjünk. 
+**Evidens kitétel**:  Ha $a_{m}$ túllő $d$-n valami $\epsilon$ hibával, akkor kell még legalább $\epsilon$, hogy visszatérjünk. 
 
 ![cordic algoritmus képe](images/CORDIC2.png)
 
@@ -91,7 +92,7 @@ Ezért $\displaystyle \epsilon \leq \sum_{k=m+1}a_{k}$, és a legrosszabb esetbe
 
 3. $\displaystyle {\color{orange}a_m \leq \sum_{k=m+1}a_{k}}$
 
-Az algoritmus futása közben gyüjtsük össze azoknak az $a$-knak az összegét egy sorozatba, amelyek két $\sigma$ előjelváltása között helyezkednek el (másképpen: minden $T_n$ egy $\sigma$ periódusba tartozó $a$-k összege). Nevezzük ezt a sorozatot $T_{n}$-nek:
+Az algoritmus futása közben gyűjtsük össze azoknak az $a$-knak az összegét egy sorozatba, amelyek két $\sigma$ előjelváltása között helyezkednek el (másképpen: minden $T_n$ egy $\sigma$ periódusba tartozó $a$-k összege). Nevezzük ezt a sorozatot $T_{n}$-nek:
 
 $$
 \begin{array}{|c|c|c|c|}
@@ -109,7 +110,7 @@ $$
 
 **I. eset**: Ha $\exist \max n$ ($\sigma_{m}$ véges alkalomkor vált előjelet), az azt jelenti, hogy az algoritmus elért egy olyan pontot, ahol $\epsilon_{m} = \sum_{k=m+1}a_{k}$, vagyis az összeg konvergál $d$-hez.
 
-**II. eset**: $\sum_{n=0}(-1)^nT_{k}$ 
+**II. eset**: $\sum_{n=0}(-1)^nT_{n}$ 
 ![cordic algoritmus képe](images/CORDIC3.png)
 
 $\epsilon_{1} = |c+p-d| \quad \epsilon_{2}=|d-p|$
@@ -117,14 +118,14 @@ $\epsilon_{1} = |c+p-d| \quad \epsilon_{2}=|d-p|$
 
 $d \in \delta=[\epsilon_{1}; \epsilon_{2}] \quad \quad p>0$
 
-$|\delta| = \epsilon_{1}+\epsilon_{2} = c \to 0 \implies \text{konvergens}$
+$|\delta| = \epsilon_{1}+\epsilon_{2} = c \to 0 \implies d\text{-be konvergál}$
 
 #### Ebben a specifikus esetben 
 
 $a_{n} = \tan^{-1}(2^{-n})$
 1. $\color{orange}{ a_{n} \to 0} \quad (2^{-n} \to 0 \text{  és } \tan ^{-1}(0) = 0)$
-1. $\color{orange} d\in[-90^{\circ};90^{\circ}]$ és $\sum a_{n} \approx 99.882$
-1. $\color{orange} a_{n} \leq \sum_{i=n+1}a_{n}$
+1. $\color{orange} d\in[-\pi/2;\pi/2]$ és $\sum a_{n} \approx 0.5549\pi$
+1. $\color{orange} a_{n} \leq \sum_{m=n+1}a_{m}$
 
 $$
 \begin{align}
@@ -157,7 +158,7 @@ $2\tan ^{-1}(2^{-n}) = \color{orange}2a_{n}$
 
 $a_{n-1} < 2a_{n} \implies \frac{a_{n}}{2} < a_{n+1}$
 
-Hozzuk létre a $b_{n}$ sorozatot, $b_{0} := a_{n}$ és $b_{n+1} := \frac{b_{n}}{2}$
+Hozzuk létre a $b_{n}$ sorozatot, $b_{0} := a_{n}$ és $b_{n+1} = \frac{b_{n}}{2}$
 
 $b_{k} < a_{n+k} \quad k>0 \implies \sum_{k>0}b_{k} < \sum_{k>0}a_{n+k}$
 
@@ -241,7 +242,7 @@ float cordic_sin(float angle) {
 
     // == Alfa frissítése ==
     float atan = i < num_atans ? atans[i] : poweroftwo; // arctan(x) ≈ x ha x kicsi
-    alpha += sign * atan;
+    alpha += sigma* atan;
 
     ++i;
     epsilon = abs(alpha - angle);
@@ -253,3 +254,5 @@ float cordic_sin(float angle) {
 {{<cite>}}
 C++ algoritmus
 {{</cite>}}
+
+Nyilván ebben a ```C++``` implementációban használunk szorzásokat, mivel nagyon kényelmetlen lenne kézzel biteket manipulálni. Akit érdekel, hogy hogyan lehet azt mégis megcsinálni, az igyon egy pohár vizet és folytassa  

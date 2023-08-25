@@ -60,9 +60,14 @@
 
 
         {{ range $tag, $_ := .Site.Taxonomies.heading}}
-            <h1 class="latest">
-               {{title $tag}} 
-            </h1>
+
+
+            <div class="heading-subsection" >
+                <h1>
+                    {{title $tag}} 
+                </h1>
+                <a href="{{ "/heading/" | relLangURL }}{{ $tag | urlize }}"> További cikkek &rarr;</a>
+            </div>
 
             <div class="card-container">
                 {{ range first 5 (where $article_pages "Params.heading" $tag)}}
