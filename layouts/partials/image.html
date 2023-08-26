@@ -3,15 +3,18 @@
         @src:String => an URL string or a path in the file system 
         @class:String => clasname of the main div
         @alt:String => the description of the image 
+        @Optional[method:["fill" | "scale"]] => the method how would rescale the image 
 
         @Optional[width:Int] => the actual dimensions of the image ## TODO 
         @Optional[height:Int] => the actual dimensions of the image ## TODO
         @Optional[loading:["eager" | "lazy"]] = "lazy" => the actual dimensions of the image ## TODO 
         @Optional[height:Int] => the actual dimensions of the image ## TODO
         @Optional[sizes:List[Int]] => scales according to the display size 
+        @Optional[method:["fill" | "scale"]] => the method how would rescale the image 
 */}}
 
 {{ $loading := default "lazy" .loading}}
+{{ $method := default "scale" .method}}
 
 {{$r := partialCached "fetch-image" (dict "src" .src) .src }}
 
@@ -24,9 +27,11 @@
   {{ $scaledImages := partialCached "opt-image.html" ( dict 
                                                   "resource" $r
                                                   "sizes" .sizes
+                                                  "method" $method
                                                 )
                                                 .src
                                                 .sizes
+                                                .method
   }}
 
   {{ $sources := slice }}

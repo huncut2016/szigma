@@ -254,5 +254,3 @@ float cordic_sin(float angle) {
 {{<cite>}}
 C++ algoritmus
 {{</cite>}}
-
-Nyilván ebben a ```C++``` implementációban használunk szorzásokat, mivel nagyon kényelmetlen lenne kézzel biteket manipulálni. Akit érdekel, hogy hogyan lehet azt mégis megcsinálni, az igyon egy pohár vizet és folytassa  
