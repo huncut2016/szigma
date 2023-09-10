@@ -50,34 +50,6 @@ a {
   font-size: 13px;
 }
 
-
-blockquote {
-  padding: 1rem;
-  border-radius: 10px;
-  position: relative;
-  padding-left: 4rem;
-  background-color: var(--bg-quote);
-  border-left: 5px solid var(--quote-line);
-  font-style: italic;
-}
-
-blockquote:before {
-  content: '“';
-  position: absolute;
-  top: -0.1rem;
-  left: 0.5rem;
-  font-size: 5rem;
-  color: var(--quote-line);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-cite {
-  font-style: italic;
-  display: table;
-  margin: 0 auto;
-}
-
-
 /* Themes */
 
 :root {
@@ -87,7 +59,7 @@ cite {
   --slight-red-gray: hsl(350, 9%, 8%);
   --slight-white: #e2e1e1;
   --slight-gray: #8d8789;
-  --slight-pink-3:hsl(353 65% 66% / 1);
+  --slight-pink-3: hsl(353 65% 66% / 1);
   --slight-red-gray-h18: hsl(350, 9%, 18%);
   --gray-20: hsl(0 0% 20%/1);
 
@@ -110,8 +82,8 @@ cite {
   --desktop-content-count: 5;
   --mobile-content-count: 3;
   --content-gap: 2vw;
-  --desktop-cover-size: calc((100vw - 2 * var(--home-layout-margin) - (var(--desktop-content-count) - 1) * var(--content-gap) ) / var(--desktop-content-count));
-  --mobile-cover-size: calc((100vw - 2 * var(--home-layout-margin) - (var(--mobile-content-count) - 1) * var(--content-gap) ) / var(--mobile-content-count));
+  --desktop-cover-size: calc((100vw - 2 * var(--home-layout-margin) - (var(--desktop-content-count) - 1) * var(--content-gap)) / var(--desktop-content-count));
+  --mobile-cover-size: calc((100vw - 2 * var(--home-layout-margin) - (var(--mobile-content-count) - 1) * var(--content-gap)) / var(--mobile-content-count));
 }
 
 .light {
@@ -133,7 +105,7 @@ cite {
 }
 
 .dark {
-  --bg: var(--red-gray); 
+  --bg: var(--red-gray);
   --bg-nav: var(--slight-red-gray);
   --nav-text: var(--pastel-beige);
   --text: var(--slight-white);
@@ -158,8 +130,7 @@ body.dark::-webkit-scrollbar-track {
   background: var(--gray-20);
 }
 
-body.light::-webkit-scrollbar-track {
-}
+body.light::-webkit-scrollbar-track {}
 
 /* Handle */
 body.dark::-webkit-scrollbar-thumb {

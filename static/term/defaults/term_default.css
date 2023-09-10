@@ -1,0 +1,35 @@
+.articles ul {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+.articles {
+  margin: 0 30px;
+}
+
+.divider {
+  margin: 30px auto;
+  width: 60%;
+  /*color: TODO*/
+}
+
+.content-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.articles li {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 15px;
+  margin: 0 0 35px 0;
+}
+
+.related-title {
+  font-weight: bold;
+}
+
+.related-text {
+  display: flex;
+  flex-direction: column;
+}

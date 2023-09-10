@@ -36,16 +36,6 @@
     color: var(--author-color);
 }
 
-.cikk-authors {
-    grid-area: b;
-}
-
-.cikk-date {
-    grid-area: c;
-    font-size: 12px;
-    font-weight: lighter;
-}
-
 .content-divider{
     width: 100%;
     border: 1px solid var(--line-color);
@@ -105,12 +95,6 @@
     display: none;
 }
 
-.article-img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-}
-
 .authors {
     display: flex;
     flex-direction: row;
@@ -150,4 +134,28 @@ code > span {
     /* display: inline-block !important; */
 }
 
+blockquote {
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+  padding-left: 4rem;
+  background-color: var(--bg-quote);
+  border-left: 5px solid var(--quote-line);
+  font-style: italic;
+}
 
+blockquote:before {
+  content: '“';
+  position: absolute;
+  top: -0.1rem;
+  left: 0.5rem;
+  font-size: 5rem;
+  color: var(--quote-line);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+cite {
+  font-style: italic;
+  display: table;
+  margin: 0 auto;
+}

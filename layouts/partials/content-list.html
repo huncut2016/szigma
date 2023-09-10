@@ -37,7 +37,7 @@
             {{ end }}
 
             {{ if $useSummary}}
-                <a class="related-summary" href="{{ .RelPermalink }}">{{ .Summary}}</a>
+                <a class="related-summary" href="{{ .RelPermalink}}">{{ .Summary | truncate 150 }}</a>
             {{ end }}
         </div>
       </li>
