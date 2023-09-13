@@ -3,7 +3,7 @@ title: "Dolorem numquam etincidunt etincidunt dolore dolor quaerat."
 date: 2021-02-03
 draft: false 
 authors: ["Zoller András","Tóth Gábor","ChatGPT"]
-heading: "facilisis"
+heading: "Választások"
 summary: "Ipsum eius sed quisquam non."
 images: ["https://picsum.photos/seed/2021-02-03/1280/853.webp"]
 cover: "https://picsum.photos/seed/2021-02-03/1280/853.webp"

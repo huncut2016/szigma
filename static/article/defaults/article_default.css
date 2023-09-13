@@ -159,3 +159,7 @@ cite {
   display: table;
   margin: 0 auto;
 }
+
+.sign {
+    text-align: center;
+}

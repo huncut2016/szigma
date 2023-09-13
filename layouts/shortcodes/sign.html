@@ -1,0 +1,21 @@
+{{- $src := .Get "src"}}
+{{- $alt:= .Get "alt"}}
+{{- $u := urls.Parse $src}}
+{{- $r := "" }}
+
+ {{- with .Page.Resources.Get $u.Path }}
+    {{- /* Image is a page resource. */}}
+    {{- $r = . }}
+  {{- else }}
+    {{- with resources.Get $u.Path }}
+      {{- /* Image is a global resource (local). */}}
+      {{- $r = . }}
+    {{- else }}
+      {{- warnf "Unable to get image %s" $u.Path}}
+    {{- end }}
+  {{- end }}
+
+
+<div class="sign">
+    <img src="{{$r.RelPermalink}}" alt="{{$alt}}" width="100" height="100">
+</div>
