@@ -133,3 +133,15 @@
 .panel ul li::marker{
     font-size: 26px;
 } 
+
+.home-link img {
+    width: 50px;
+    height: auto;
+}
+
+.home-link {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+}
